@@ -1,0 +1,19 @@
+<div class="container">
+	<div class="navegacion">
+
+	</div>
+	<div class="todo">
+		<div class="centro-container">
+			<todo-list
+			[todos]="todoList"
+			[editTodo]="editTodo"
+			(data)="drag($event)"
+			(completado)="editarSimpleTodo($event)"
+			(editarSimpleTodo)="editarSimpleTodo($event)"
+			></todo-list>
+		</div>
+	</div>
+	<div class="historial">
+		
+	</div>
+</div>

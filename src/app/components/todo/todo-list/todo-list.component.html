@@ -1,0 +1,22 @@
+<ng-container>
+  <div cdkDropList class="todo-list" (cdkDropListDropped)="drop($event)">
+    <div class="todo-box" *ngFor="let todo of todos; let i = index" cdkDrag>
+      <ng-container>
+        <ul>
+          <li class="drag" cdkDragHandle>
+            drag
+          </li>
+          <li class="done" (click)="editCompletado(todo)">
+            {{todo.completado}}
+          </li>
+          <li (click)="editarTodo(todo)">
+            {{todo.titulo}}
+          </li>
+          <li>
+            <tag-component [tags]="todo.tag"></tag-component>
+          </li>
+        </ul>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>
