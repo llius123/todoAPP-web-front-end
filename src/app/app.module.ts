@@ -27,7 +27,7 @@ import { ComponentModule } from './components/components.module';
 		provide: HTTP_INTERCEPTORS,
 		useClass: AuthInterceptorService,
 		multi: true
-	}
+	},
 	],
   bootstrap: [AppComponent]
 })

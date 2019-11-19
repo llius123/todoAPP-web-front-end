@@ -17,7 +17,12 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+	],
+	"paths": {
+		"svg": ["src/assets/svg.json"]
+	},
+	"resolveJsonModule": true,
+	"esModuleInterop": true
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

@@ -1,17 +1,24 @@
+@import "../../styles.scss";
 .container {
 	width: 100%;
 	height: 100vh;
 	display: flex;
 	flex-direction: row;
 	.navegacion {
-		border: 1px solid black;
 		height: 100%;
-		width: 40px;
+		width: 10%;
+		margin: 5px;
+		background-color: $azul-oscuro-a;
+		.item {
+			display: flex;
+			justify-content: center;
+			background-color: $azul-claro-e;
+		}
 	}
 	.todo {
 		border: 1px solid black;
 		height: 100%;
-		width: 80%;
+		width: 70%;
 		.centro-container {
 			div > .fila{
 				border: 1px solid black;

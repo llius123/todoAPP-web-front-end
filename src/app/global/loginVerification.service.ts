@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { CanLoad, Route, UrlSegment, CanActivate, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { LoginService } from '../login/login.service';
-@Injectable()
+@Injectable({
+	providedIn: 'root'
+})
 export class LoginVerificationCanActivate implements CanActivate {
 	constructor( private route: Router, private _loginService: LoginService ) { }
 

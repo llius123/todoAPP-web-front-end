@@ -1,1 +1,12 @@
-editar-todo
+<ng-container>
+	<form [formGroup]="formdata">
+		<h3>Titulo</h3>
+		<input formControlName="titulo">
+		<h3>Descripcion</h3>
+		<textarea formControlName="descripcion" rows="4" cols="30"></textarea> 
+		<h3>Completado</h3>
+		<input formControlName="completado">
+		<button (click)="cancelar()">Cancelar</button>
+		<button (click)="guardar()">Guardar</button>
+	</form>
+</ng-container>

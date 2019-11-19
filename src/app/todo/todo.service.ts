@@ -1,3 +1,4 @@
+import { EventEmitter } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -10,6 +11,9 @@ import { TodoInterface } from '../components/todo/todo-list/todo-list.component'
 export class TodoService {
 
 	constructor(private httpClient: HttpClient) {}
+
+	public todo: EventEmitter<TodoInterface> = new EventEmitter<TodoInterface>();
+	public todoEditado: EventEmitter<TodoInterface> = new EventEmitter<TodoInterface>();
 
 	public getTodoList(): Observable<TodoInterface[]> {
 		return this.httpClient.get<TodoInterface[]>(environment.apiPath + 'todo/getAllTodo')

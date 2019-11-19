@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoInterface } from 'src/app/components/todo/todo-list/todo-list.component';
 import { TodoService } from '../todo.service';
-
+import * as svg from 'svg';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 @Component({
   selector: 'listar-todo',
   templateUrl: './listar-todo.component.html',
@@ -12,6 +13,15 @@ export class ListarTodoComponent implements OnInit {
 	public todoList: TodoInterface[];
 	public editTodo: TodoInterface;
 	constructor( private _todoService: TodoService) {
+		this._todoService.todoEditado.subscribe(
+			todo => {
+				this.todoList.find((element, index) => {
+					if(element.id === todo.id){
+						this.todoList[index] = todo
+					}
+				})
+			}
+		)
 	}
 
 	ngOnInit(): void {
@@ -31,12 +41,15 @@ export class ListarTodoComponent implements OnInit {
 		)
 	}
 	public editarSimpleTodo($event: TodoInterface) {
+		this._todoService.todo.emit($event);
+	}
+	public cambiarElCampoCompletado($event: TodoInterface){
 		this._todoService.editarSimpleTodo($event).subscribe(
 			resp => {
-				console.log(resp)
+				//TODO
 			},
 			error => {
-				console.log(error)
+				//TODO
 			}
 		)
 	}
