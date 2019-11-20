@@ -4,29 +4,32 @@
 	height: 100vh;
 	display: flex;
 	flex-direction: row;
+	background-color: #EBF5FF;
 	.navegacion {
 		height: 100%;
 		width: 10%;
 		margin: 5px;
 		background-color: $azul-oscuro-a;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		border-radius: $borderRadius;
 		.item {
 			display: flex;
 			justify-content: center;
+			align-items: center;
 			background-color: $azul-claro-e;
+			height: 70px;
+			margin: 4px;
+			border-radius: $borderRadius;
 		}
 	}
 	.todo {
-		border: 1px solid black;
 		height: 100%;
 		width: 70%;
-		.centro-container {
-			div > .fila{
-				border: 1px solid black;
-			}
-		}
+		background-color: $azul-claro-e;
 	}
 	.historial {
-		border: 1px solid black;
 		height: 100%;
 		width: 20%;
 	}

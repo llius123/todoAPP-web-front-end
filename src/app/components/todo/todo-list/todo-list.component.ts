@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
+import { SafeHtml } from '@angular/platform-browser';
+import { SvgService } from 'src/app/global/svg.service';
 
 export interface TodoInterface {
   id: number;
@@ -57,8 +59,15 @@ export class TodoListComponent implements OnInit {
   >();
 
   private _todos: TodoInterface[];
-  ngOnInit() {}
-  constructor() {}
+  public dragSvgIcon: SafeHtml;
+  public completadoSvgIcon: SafeHtml;
+  public noCompletadoSvgIcon: SafeHtml;
+  ngOnInit() {
+	this.dragSvgIcon = this._svgService.getIconoEnSVG('drag_icon');
+	this.completadoSvgIcon = this._svgService.getIconoEnSVG('completado_icon');
+	this.noCompletadoSvgIcon = this._svgService.getIconoEnSVG('no_completado_icon');
+  }
+  constructor(private _svgService: SvgService) {}
 
   /**
    * Evento que se ejecuta cuando se hace un drag del TODO

@@ -3,11 +3,12 @@
     <div class="todo-box" *ngFor="let todo of todos; let i = index" cdkDrag>
       <ng-container>
         <ul>
-          <li class="drag" cdkDragHandle>
-            drag
+		  <li class="drag" cdkDragHandle>
+				<div class="item" [innerHTML]="dragSvgIcon" ></div>
           </li>
           <li class="done" (click)="editCompletado(todo)">
-            {{todo.completado}}
+				<div class="item" [innerHTML]="completadoSvgIcon" *ngIf="todo.completado"></div>
+				<div class="item" [innerHTML]="noCompletadoSvgIcon" *ngIf="!todo.completado"></div>
           </li>
           <li (click)="editarTodo(todo)">
             {{todo.titulo}}
