@@ -1,12 +1,22 @@
 <ng-container>
 	<form [formGroup]="formdata">
-		<h3>Titulo</h3>
-		<input formControlName="titulo">
-		<h3>Descripcion</h3>
-		<textarea formControlName="descripcion" rows="4" cols="30"></textarea> 
-		<h3>Completado</h3>
-		<input formControlName="completado">
-		<button (click)="cancelar()">Cancelar</button>
-		<button (click)="guardar()">Guardar</button>
+		<ul>
+			<li>
+				<h3>Titulo</h3>
+				<input formControlName="titulo">
+			</li>
+			<li>
+				<h3>Descripcion</h3>
+				<textarea formControlName="descripcion" rows="4" cols="30"></textarea> 
+			</li>
+			<li>
+				<h3>Completado</h3>
+				<input formControlName="completado">
+			</li>
+			<li>
+				<button class="cancelar" (click)="cancelar()">Cancelar</button>
+				<button class="guardar" (click)="guardar()">Guardar</button>
+			</li>
+		</ul>
 	</form>
 </ng-container>

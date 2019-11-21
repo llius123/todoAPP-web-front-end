@@ -4,9 +4,10 @@
 	height: 100vh;
 	display: flex;
 	flex-direction: row;
-	background-color: #EBF5FF;
+	background-color: $azul-claro-e;
+	overflow: hidden;
 	.navegacion {
-		height: 100%;
+		height: 99%;
 		width: 10%;
 		margin: 5px;
 		background-color: $azul-oscuro-a;
@@ -26,11 +27,76 @@
 	}
 	.todo {
 		height: 100%;
-		width: 70%;
+		width: 65%;
 		background-color: $azul-claro-e;
+		padding: 0px 25px 0 25px;
 	}
 	.historial {
 		height: 100%;
-		width: 20%;
+		width: 25%;
+		padding-right: 20px;
+	}
+
+	.nuevo {
+		display: none;
+	}
+
+
+
+	/* Smartphones (portrait) ----------- */
+	@media only screen and (max-width : 768px) {
+		flex-direction: column;
+		width: 100%;
+		.navegacion, .todo, .historial {
+			width: 100%;
+		}
+		.navegacion{
+			flex-direction: row;
+			height: 10vh;
+			overflow-y: auto;
+			width: 98%;
+			.caja{
+				height: auto;
+			}
+			.item{
+				height: auto;
+				margin: 0;
+				border: none;
+				svg {
+					width: auto !important;
+					height: auto !important;
+				}
+			}
+		}
+		.todo {
+			height: 90vh;
+			padding: 0;
+		}
+		.historial {
+			width: 70%;
+			background-color: grey;
+			color: black;
+			right: auto;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			position: absolute;
+			z-index: 2;
+			height: 100%;
+		}
+		.nuevo {
+			z-index: 1;
+			bottom: 0;
+			right: 0;
+			position: absolute;
+			background-color: $azul-claro-c;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: 0 20px 20px 0;
+		}
 	}
 }

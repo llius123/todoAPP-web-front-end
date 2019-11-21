@@ -14,6 +14,8 @@ export class TodoComponent implements OnInit {
 	public todoList: TodoInterface[];
 	public editTodo: TodoInterface;
 	public todoSvgIcon: SafeHtml;
+
+	public mostrarHistorialMovil = "none";
 	constructor( private _todoService: TodoService, private _svgService: SvgService) {
 	}
 
@@ -43,5 +45,14 @@ export class TodoComponent implements OnInit {
 				console.log(error)
 			}
 		)
+	}
+	public nuevoTodoMovil(){
+		this.mostrarHistorialMovil = "";
+	}
+	public cancelar(){
+		console.log(this.mostrarHistorialMovil)
+		if(this.mostrarHistorialMovil === ""){
+			this.mostrarHistorialMovil = "none"
+		}
 	}
 }

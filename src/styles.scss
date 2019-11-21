@@ -4,8 +4,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+html, body, div, span, applet, object, iframe, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -47,9 +46,67 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+h1, h2, h3, h4, h5, h6{
+	margin: 0;
+	padding: 0;
+}
 //SVG
-.svg {
-	&-todo{
-		height: 60px;
+#todo_icon{
+	height: 60px;
+}
+#completado_icon , #no_completado_icon, #drag_icon{
+	height: 25px;
+	width: 25px;
+}
+
+//Forms
+input {
+	border: $borderWidth solid transparent;
+	border-radius: 5px;
+	width: 100%;
+	height: 30px;
+	box-shadow: $sombraBorde;
+	padding-left: 12px;
+	box-sizing:border-box;
+	background-color: $azul-claro-d;
+	&:focus {
+		box-sizing:border-box;
+		border: $borderWidth solid $azul-claro-c;
+		padding-left: 12px;
 	}
+}
+textarea {
+	border: $borderWidth solid transparent;
+	border-radius: 5px;
+	width: 100%;
+	box-shadow: $sombraBorde;
+	padding-left: 12px;
+	padding-top: 12px;
+	box-sizing:border-box;
+	background-color: $azul-claro-d;
+	&:focus {
+		box-sizing:border-box;
+		padding-left: 12px;
+		padding-top: 12px;
+		border: $borderWidth solid $azul-claro-c;
+	}
+}
+//Botones
+button {
+	padding-left: 1rem !important;
+	padding-right: 1rem !important;
+	border-radius: $borderRadius;
+	line-height: inherit;
+	height: 42px;
+	border: none;
+	cursor: pointer;
+}
+.guardar {
+	background-color: #4191D7;
+	color: white
+}
+.cancelar {
+	color: #4191D7;
+	background-color: white;
+	border: $borderWidth solid $azul-claro-c;
 }
