@@ -22,6 +22,11 @@ export class ListarTodoComponent implements OnInit {
 				})
 			}
 		)
+		this._todoService.nuevoTodoAnyadirLista.subscribe(
+			todo => {
+				this.todoList.push(todo)
+			}
+		)
 	}
 
 	ngOnInit(): void {
@@ -41,6 +46,7 @@ export class ListarTodoComponent implements OnInit {
 		)
 	}
 	public editarSimpleTodo($event: TodoInterface) {
+		this._todoService.mostrarEsconderEditarDatosTodoEventEmitter.emit("");
 		this._todoService.todo.emit($event);
 	}
 	public cambiarElCampoCompletado($event: TodoInterface){
@@ -52,5 +58,8 @@ export class ListarTodoComponent implements OnInit {
 				//TODO
 			}
 		)
+	}
+	public crearNuevoTodo(){
+		this._todoService.mostrarEsconderEditarDatosTodoEventEmitter.emit("");
 	}
 }

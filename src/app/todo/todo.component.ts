@@ -17,6 +17,11 @@ export class TodoComponent implements OnInit {
 
 	public mostrarHistorialMovil = "none";
 	constructor( private _todoService: TodoService, private _svgService: SvgService) {
+		this._todoService.mostrarEsconderEditarDatosTodoEventEmitter.subscribe(
+			resp => {
+				this.mostrarHistorialMovil = resp;
+			}
+		)
 	}
 
 	ngOnInit(): void {

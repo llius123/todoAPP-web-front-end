@@ -57,6 +57,9 @@ export class TodoListComponent implements OnInit {
   @Output() editarSimpleTodo: EventEmitter<TodoInterface> = new EventEmitter<
   TodoInterface
   >();
+  @Output() nuevo: EventEmitter<boolean> = new EventEmitter<
+  boolean
+  >();
 
   private _todos: TodoInterface[];
   public dragSvgIcon: SafeHtml;
@@ -98,5 +101,9 @@ export class TodoListComponent implements OnInit {
    */
   editarTodo(todo: TodoInterface) {
 	  this.editarSimpleTodo.emit(todo)
+  }
+
+  nuevoTodo(){
+	  this.nuevo.emit(true)
   }
 }

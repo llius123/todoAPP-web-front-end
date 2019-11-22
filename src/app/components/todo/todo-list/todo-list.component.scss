@@ -19,6 +19,13 @@ ul {
     }
   }
 }
+//Estilo solo para el TODO de nuevo
+.nuevo {
+	height: 35px;
+	justify-content: center !important;
+	cursor: pointer;
+}
+//Estilos drag
 .drag{
   cursor: grab;
 }

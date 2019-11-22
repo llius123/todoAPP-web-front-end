@@ -12,6 +12,9 @@ export class TodoService {
 
 	constructor(private httpClient: HttpClient) {}
 
+	public mostrarEsconderEditarDatosTodoEventEmitter: EventEmitter<string> = new EventEmitter<string>();
+	public nuevoTodoAnyadirLista: EventEmitter<TodoInterface> = new EventEmitter<TodoInterface>();
+
 	public todo: EventEmitter<TodoInterface> = new EventEmitter<TodoInterface>();
 	public todoEditado: EventEmitter<TodoInterface> = new EventEmitter<TodoInterface>();
 
@@ -25,5 +28,9 @@ export class TodoService {
 
 	public editarSimpleTodo(todo: TodoInterface): Observable<any>{
 		return this.httpClient.put<any>(environment.apiPath + 'todo/updateSimpleTodo', todo);
+	}
+
+	public crearTodo(todo: TodoInterface): Observable<TodoInterface>{
+		return this.httpClient.post<TodoInterface>(environment.apiPath + 'todo/createTodo', todo);
 	}
 }

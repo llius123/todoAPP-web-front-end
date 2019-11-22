@@ -39,16 +39,29 @@ export class EditTodoComponent implements OnInit {
 	}
 
 	public guardar() {
-		this._todoService.editarSimpleTodo(this.formdata.getRawValue()).subscribe(
-			resp => {
-				console.log(resp)
-				this._todoService.todoEditado.emit(this.formdata.getRawValue())
-			},
-			error => {
-				console.log(error)
-			}
-		)
+		const todo: TodoInterface = this.formdata.getRawValue(); 
+		if(todo.id !== null){
+			this._todoService.editarSimpleTodo(todo).subscribe(
+				resp => {
+					this._todoService.todoEditado.emit(this.formdata.getRawValue())
+				},
+				error => {
+					console.log(error)
+				}
+			)
+		}else{
+			this._todoService.crearTodo(todo).subscribe(
+				resp => {
+					this._todoService.nuevoTodoAnyadirLista.emit(resp[0])
+				},
+				error => {
+					console.log(error)
+				}
+			)
+		}
 	}
 
-
+	public cancelar(){
+		this._todoService.mostrarEsconderEditarDatosTodoEventEmitter.emit("none");
+	}
 }

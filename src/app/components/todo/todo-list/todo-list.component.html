@@ -1,4 +1,9 @@
 <ng-container>
+	<div class="todo-box nuevo" (click)="nuevoTodo()">
+		<span>
+			Nuevo
+		</span>
+	</div>
   <div cdkDropList class="todo-list" (cdkDropListDropped)="drop($event)">
     <div class="todo-box" *ngFor="let todo of todos; let i = index" cdkDrag>
       <ng-container>
