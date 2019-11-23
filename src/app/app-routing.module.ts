@@ -1,33 +1,43 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { TodoComponent } from './todo/todo.component';
-import { LoginVerificationCanActivate } from './global/loginVerification.service';
-
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { LoginComponent } from "./login/login.component";
+import { TodoComponent } from "./todo/todo.component";
+import { LoginVerificationCanActivate } from "./global/loginVerification.service";
+import { ListarTodoComponent } from "./todo/listar-todo/listar-todo.component";
 
 const routes: Routes = [
 	{
-		path: '',
-		redirectTo: 'login',
-		pathMatch: 'full'
+		path: "",
+		redirectTo: "login",
+		pathMatch: "full"
 	},
 	{
-		path: 'login',
+		path: "login",
 		component: LoginComponent
 	},
 	{
-		path: 'todo',
+		path: "todo",
 		component: TodoComponent,
-		canActivate: [LoginVerificationCanActivate]
+		children: [
+			{
+				path: "inicio",
+				component: ListarTodoComponent,
+				canActivate: [LoginVerificationCanActivate]
+			},
+			{
+				path: "**",
+				redirectTo: "inicio"
+			}
+		]
 	},
 	{
-		path: '**',
-		redirectTo: 'login'
+		path: "**",
+		redirectTo: "login"
 	}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+	imports: [RouterModule.forRoot(routes)],
+	exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -36,7 +36,12 @@ ul {
 .todo-list {
   max-width: 100%;
   display: block;
-  overflow: hidden;
+  height: 750px;
+  overflow: auto;
+  	/* Smartphones (portrait) ----------- */
+	@media only screen and (max-width : 768px) {
+		height: 650px;
+	}
 }
 
 .todo-box {

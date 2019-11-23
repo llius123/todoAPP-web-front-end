@@ -6,9 +6,9 @@ import { DragDropModule } from "@angular/cdk/drag-drop";
 import { TagModule } from "../tag/tag.module";
 
 @NgModule({
-  declarations: [TodoListComponent],
-  imports: [CommonModule, BrowserModule, DragDropModule, TagModule],
-  providers: [],
-  exports: [TodoListComponent]
+	declarations: [TodoListComponent],
+	imports: [CommonModule, BrowserModule, DragDropModule, TagModule],
+	providers: [],
+	exports: [TodoListComponent]
 })
 export class TodoListModule {}

@@ -8,7 +8,8 @@
 	overflow: hidden;
 	.navegacion {
 		height: 99%;
-		width: 10%;
+		width: 5%;
+		min-width: 5%;
 		margin: 5px;
 		background-color: $azul-oscuro-a;
 		display: flex;
@@ -27,7 +28,7 @@
 	}
 	.todo {
 		height: 100%;
-		width: 65%;
+		width: 100%;
 		background-color: $azul-claro-e;
 		padding: 0px 25px 0 25px;
 	}
@@ -41,8 +42,7 @@
 		display: none;
 	}
 
-
-
+	//Media query para moviles
 	/* Smartphones (portrait) ----------- */
 	@media only screen and (max-width : 768px) {
 		flex-direction: column;
@@ -73,16 +73,17 @@
 			padding: 0;
 		}
 		.historial {
-			width: 70%;
-			background-color: grey;
+			width: 50%;
+			background-color: $azul-claro-e;
 			color: black;
 			right: auto;
 			top: 0;
 			bottom: 0;
 			right: 0;
 			position: absolute;
-			z-index: 2;
+			z-index: 3;
 			height: 100%;
+			padding-left: 20px;
 		}
 		.nuevo {
 			z-index: 1;
