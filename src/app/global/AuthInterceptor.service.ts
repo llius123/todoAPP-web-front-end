@@ -25,11 +25,15 @@ export class AuthInterceptorService implements HttpInterceptor {
 		const token: string = this._loginService.token;
 		let request = req;
 		if (token || request.url.includes("login")) {
-			request = req.clone({
-				setHeaders: {
-					authorization: `Bearer ${token}`
-				}
-			});
+			if(token){
+				request = req.clone({
+					setHeaders: {
+						authorization: token
+					}
+				});
+			}else{
+				request = req.clone();
+			}
 			return next.handle(request);
 		} else {
 			this._router.navigate(["login"]);

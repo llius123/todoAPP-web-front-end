@@ -1,3 +1,5 @@
-<input type="text" #user>
-<input type="text" #pass>
-<button (click)="login()">Login</button>
+<form [formGroup]="loginForm">
+	<input type="text" formControlName="user">
+	<input type="text" formControlName="pass">
+	<button (click)="login()">Login</button>
+</form>
