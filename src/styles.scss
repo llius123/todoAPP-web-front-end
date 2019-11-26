@@ -73,7 +73,7 @@ input {
 	box-shadow: $sombraBorde;
 	padding-left: 12px;
 	box-sizing:border-box;
-	background-color: $azul-claro-d;
+	background-color: white;
 	&:focus {
 		box-sizing:border-box;
 		border: $borderWidth solid $azul-claro-c;
@@ -88,7 +88,7 @@ textarea {
 	padding-left: 12px;
 	padding-top: 12px;
 	box-sizing:border-box;
-	background-color: $azul-claro-d;
+	background-color: white;
 	&:focus {
 		box-sizing:border-box;
 		padding-left: 12px;
