@@ -7,16 +7,18 @@ import { ListarTodoComponent } from "./listar-todo/listar-todo.component";
 import { EditTodoComponent } from "./edit-todo/edit-todo.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { SvgService } from "../global/svg.service";
-import { Routes, RouterModule } from "@angular/router";
 import { AppRoutingModule } from "../app-routing.module";
+import { TodoProyectoComponent } from './proyecto/todo-proyecto.component';
+import { ProyectoModule } from '../components/proyecto/proyecto.module';
 
 @NgModule({
-	declarations: [TodoComponent, ListarTodoComponent, EditTodoComponent],
+	declarations: [TodoComponent, ListarTodoComponent, EditTodoComponent, TodoProyectoComponent],
 	imports: [
 		AppRoutingModule,
 		BrowserModule,
 		ReactiveFormsModule,
-		TodoListModule
+		TodoListModule,
+		ProyectoModule
 	],
 	providers: [TodoService, SvgService],
 	bootstrap: []
