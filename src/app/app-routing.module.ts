@@ -23,10 +23,10 @@ const routes: Routes = [
 			{
 				path: "proyecto",
 				component: TodoProyectoComponent,
-				canActivate: [LoginVerificationCanActivate]
+				canActivate: [LoginVerificationCanActivate],
 			},
 			{
-				path: "inicio",
+				path: "proyecto/:id",
 				component: ListarTodoComponent,
 				canActivate: [LoginVerificationCanActivate]
 			},

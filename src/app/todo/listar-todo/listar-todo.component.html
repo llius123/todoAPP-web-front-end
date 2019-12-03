@@ -1,8 +1,15 @@
-<todo-list
-[todos]="todoList"
-[editTodo]="editTodo"
-(data)="drag($event)"
-(completado)="cambiarElCampoCompletado($event)"
-(editarSimpleTodo)="editarSimpleTodo($event)"
-(nuevo)="crearNuevoTodo()"
-></todo-list>
+<div class="container">
+	<div class="todo">
+		<todo-list
+		[todos]="todoList"
+		[editTodo]="editTodo"
+		(data)="drag($event)"
+		(completado)="cambiarElCampoCompletado($event)"
+		(editarSimpleTodo)="editarSimpleTodo($event)"
+		(nuevo)="crearNuevoTodo()"
+		></todo-list>
+	</div>
+	<div class="historial" [style.display]="mostrarHistorialMovil">
+		<edit-todo></edit-todo>
+	</div>
+</div>

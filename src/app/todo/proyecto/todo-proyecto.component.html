@@ -1,3 +1,3 @@
-<div class="container">
-	<proyecto-component></proyecto-component>
+<div class="container" *ngFor="let proyecto of proyectos">
+	<proyecto-component [proyecto]="proyecto" (proyectoSeleccionado)="proyectoSeleccionado($event)"></proyecto-component>
 </div>

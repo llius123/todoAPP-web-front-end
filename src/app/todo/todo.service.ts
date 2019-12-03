@@ -4,6 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { TodoInterface } from "../components/todo/todo-list/todo-list.component";
+import { ProyectoInterface } from '../components/proyecto/proyecto/proyecto.component';
 
 @Injectable({
 	providedIn: "root"
@@ -50,5 +51,11 @@ export class TodoService {
 			environment.apiPath + "todo/createTodo",
 			todo
 		);
+	}
+
+	public getAllProyectos(): Observable<ProyectoInterface[]> {
+		return this.httpClient.get<ProyectoInterface[]>(
+			environment.apiPath + "proyecto/getAllProyecto"
+		)
 	}
 }

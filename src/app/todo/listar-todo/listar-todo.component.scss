@@ -1,0 +1,54 @@
+@import "../../../styles.scss";
+.container {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: row;
+	background-color: $azul-claro-e;
+	overflow: hidden;
+	.todo {
+		width: 100%;
+	}
+	.historial {
+		height: 100%;
+		width: 25%;
+		padding-right: 20px;
+	}
+
+	.nuevo {
+		display: none;
+	}
+	//Media query para moviles
+	/* Smartphones (portrait) ----------- */
+	@media only screen and (max-width : 768px) {
+		flex-direction: column;
+		width: 100%;
+		.historial {
+			width: 50%;
+			background-color: $azul-claro-e;
+			color: black;
+			right: auto;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			position: absolute;
+			z-index: 3;
+			height: 100%;
+			padding-left: 20px;
+		}
+		.nuevo {
+			z-index: 1;
+			bottom: 0;
+			right: 0;
+			position: absolute;
+			background-color: $azul-claro-c;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: 0 20px 20px 0;
+		}
+	}
+}

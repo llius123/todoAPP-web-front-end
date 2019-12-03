@@ -1,0 +1,34 @@
+@import "../styles.scss";
+.container {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: row;
+	background-color: $azul-claro-e;
+	overflow: hidden;
+	.navegacion {
+		height: 99%;
+		width: 5%;
+		min-width: 5%;
+		margin: 5px;
+		background-color: $azul-oscuro-a;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		border-radius: $borderRadius;
+		.item {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: $azul-claro-e;
+			height: 70px;
+			margin: 4px;
+			border-radius: $borderRadius;
+		}
+	}
+	.contenido {
+		height: 100%;
+		width: 100%;
+		background-color: $azul-claro-e;
+	}
+}

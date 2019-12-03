@@ -11,7 +11,14 @@ import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 export class ListarTodoComponent implements OnInit {
 	public todoList: TodoInterface[];
 	public editTodo: TodoInterface;
+	public mostrarHistorialMovil = "none";
 	constructor(private _todoService: TodoService) {
+		// EScondo o muestro la ventana de la derecha que es el editor de TODO
+		this._todoService.mostrarEsconderEditarDatosTodoEventEmitter.subscribe(
+			resp => {
+				this.mostrarHistorialMovil = resp;
+			}
+		);
 		this._todoService.todoEditado.subscribe(todo => {
 			this.todoList.find((element, index) => {
 				if (element.id === todo.id) {
@@ -54,4 +61,6 @@ export class ListarTodoComponent implements OnInit {
 	public crearNuevoTodo() {
 		this._todoService.mostrarEsconderEditarDatosTodoEventEmitter.emit("");
 	}
+
+	
 }
