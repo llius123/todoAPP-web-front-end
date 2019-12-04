@@ -7,7 +7,8 @@
 	background-color: $azul-claro-e;
 	overflow: hidden;
 	.todo {
-		width: 100%;
+		width: 70%;
+		margin-right: 30px
 	}
 	.historial {
 		height: 100%;
@@ -23,6 +24,10 @@
 	@media only screen and (max-width : 768px) {
 		flex-direction: column;
 		width: 100%;
+		.todo {
+			width: 100%;
+			margin-right: 0px;
+		}
 		.historial {
 			width: 50%;
 			background-color: $azul-claro-e;
