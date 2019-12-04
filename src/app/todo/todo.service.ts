@@ -15,18 +15,18 @@ export class TodoService {
 	public mostrarEsconderEditarDatosTodoEventEmitter: EventEmitter<
 		string
 	> = new EventEmitter<string>();
-	public nuevoTodoAnyadirLista: EventEmitter<TodoInterface> = new EventEmitter<
-		TodoInterface
-	>();
+	// public nuevoTodoAnyadirLista: EventEmitter<TodoInterface> = new EventEmitter<
+	// 	TodoInterface
+	// >();
 
-	public todo: EventEmitter<TodoInterface> = new EventEmitter<TodoInterface>();
-	public todoEditado: EventEmitter<TodoInterface> = new EventEmitter<
-		TodoInterface
-	>();
+	// public todo: EventEmitter<TodoInterface> = new EventEmitter<TodoInterface>();
+	// public todoEditado: EventEmitter<TodoInterface> = new EventEmitter<
+	// 	TodoInterface
+	// >();
 
-	public getTodoList(): Observable<TodoInterface[]> {
+	public getTodoList(idProyecto: number): Observable<TodoInterface[]> {
 		return this.httpClient.get<TodoInterface[]>(
-			environment.apiPath + "todo/getAllTodo"
+			environment.apiPath + "todo/getAllTodo/"+idProyecto
 		);
 	}
 
@@ -39,16 +39,16 @@ export class TodoService {
 		);
 	}
 
-	public editarSimpleTodo(todo: TodoInterface): Observable<any> {
+	public editarSimpleTodo(todo: TodoInterface, idProyecto: number): Observable<any> {
 		return this.httpClient.put<any>(
-			environment.apiPath + "todo/updateSimpleTodo",
+			environment.apiPath + "todo/updateSimpleTodo/" + idProyecto,
 			todo
 		);
 	}
 
-	public crearTodo(todo: TodoInterface): Observable<TodoInterface> {
+	public crearTodo(todo: TodoInterface, idProyecto: number): Observable<TodoInterface> {
 		return this.httpClient.post<TodoInterface>(
-			environment.apiPath + "todo/createTodo",
+			environment.apiPath + "todo/createTodo/" + idProyecto,
 			todo
 		);
 	}
