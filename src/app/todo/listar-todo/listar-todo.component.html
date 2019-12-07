@@ -9,7 +9,7 @@
 		(nuevo)="crearNuevoTodo()"
 		></todo-list>
 	</div>
-	<div class="historial" [style.display]="mostrarHistorialMovil">
+	<div class="historial" [style.display]="mostrarEdicionTodo">
 		<ng-container>
 			<form [formGroup]="formdata">
 				<ul>
@@ -20,10 +20,6 @@
 					<li>
 						<h3>Descripcion</h3>
 						<textarea formControlName="descripcion" rows="4" cols="30"></textarea> 
-					</li>
-					<li>
-						<h3>Completado</h3>
-						<input formControlName="completado">
 					</li>
 					<li>
 						<button class="cancelar" (click)="cancelar()">Cancelar</button>

@@ -12,17 +12,8 @@ import { ProyectoInterface } from '../components/proyecto/proyecto/proyecto.comp
 export class TodoService {
 	constructor(private httpClient: HttpClient) {}
 
-	public mostrarEsconderEditarDatosTodoEventEmitter: EventEmitter<
-		string
-	> = new EventEmitter<string>();
-	// public nuevoTodoAnyadirLista: EventEmitter<TodoInterface> = new EventEmitter<
-	// 	TodoInterface
-	// >();
-
-	// public todo: EventEmitter<TodoInterface> = new EventEmitter<TodoInterface>();
-	// public todoEditado: EventEmitter<TodoInterface> = new EventEmitter<
-	// 	TodoInterface
-	// >();
+	//Guardo en este servicio el proyectro seleccionado
+	public proyectoSeleccionado: ProyectoInterface;
 
 	public getTodoList(idProyecto: number): Observable<TodoInterface[]> {
 		return this.httpClient.get<TodoInterface[]>(
@@ -31,10 +22,11 @@ export class TodoService {
 	}
 
 	public actualizarOrden(
-		orden: [{ id: number; orden: number }]
+		orden: [{ id: number; orden: number }],
+		proyecto: number
 	): Observable<any> {
 		return this.httpClient.put<any>(
-			environment.apiPath + "todo/updateOrderTodo",
+			environment.apiPath + "todo/updateOrderTodo/" + proyecto,
 			orden
 		);
 	}

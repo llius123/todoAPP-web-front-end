@@ -9,7 +9,7 @@ export interface TodoInterface {
 	descripcion: string;
 	tag: TagInterface;
 	orden: number;
-	completado: boolean;
+	completado: number;
 }
 export interface TagInterface {
 	id: number;
@@ -37,7 +37,7 @@ export class TodoListComponent implements OnInit {
 						descripcion: data.descripcion,
 						tag: data.tag,
 						orden: data.orden,
-						completado: data.completado
+						completado: +data.completado
 					};
 				}
 			});
@@ -91,7 +91,11 @@ export class TodoListComponent implements OnInit {
 	 * @param todo Objeto TODO
 	 */
 	editCompletado(todo: TodoInterface) {
-		todo.completado = !todo.completado;
+		if(todo.completado === 1){
+			todo.completado = 0
+		}else{
+			todo.completado = 1
+		}
 		this.completado.emit(todo);
 	}
 

@@ -26,7 +26,6 @@ export class ProyectoComponent implements OnInit {
 	constructor() {}
 
 	public emitirProyectoSeleccionadop(){
-		console.log('hola')
 		this.proyectoSeleccionado.emit(this.proyecto)
 	}
 }
