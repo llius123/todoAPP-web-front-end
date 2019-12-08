@@ -70,11 +70,15 @@ export class ListarTodoComponent implements OnInit {
 	}
 	//Editar lista de todos
 	public editarListaTodo(todo: TodoInterface){
-		this.todoList.find((element, index) => {
-			if (element.id === todo.id) {
-				this.todoList[index] = todo;
-			}
-		});
+		if(this.todoList.length > 0){
+			this.todoList.find((element, index) => {
+				if (element.id === todo.id) {
+					this.todoList[index] = todo;
+				}
+			});
+		}else{
+			this.todoList.push(todo)
+		}
 	}
 	//Cambiar el estado del todo de completado  ano completado o al reves
 	public cambiarElCampoCompletado($event: TodoInterface) {
@@ -87,7 +91,10 @@ export class ListarTodoComponent implements OnInit {
 	public crearNuevoTodo() {
 		this.mostrarEdicionTodo = ""
 		this.mostrarBotonesCompletadoEditarTodo = false;
-		const ordenUltimoElementoTodo = this.todoList[this.todoList.length - 1].orden;
+		let ordenUltimoElementoTodo = 0;
+		if(this.todoList.length > 0){
+			ordenUltimoElementoTodo = this.todoList[this.todoList.length - 1].orden;
+		}
 		this.formdata.patchValue({
 			id: null,
 			titulo: '',
