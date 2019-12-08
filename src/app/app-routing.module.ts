@@ -4,7 +4,7 @@ import { LoginComponent } from "./login/login.component";
 import { TodoComponent } from "./todo/todo.component";
 import { LoginVerificationCanActivate } from "./global/loginVerification.service";
 import { ListarTodoComponent } from "./todo/listar-todo/listar-todo.component";
-import { TodoProyectoComponent } from './todo/proyecto/todo-proyecto.component';
+import { TodoProyectoComponent } from "./todo/proyecto/todo-proyecto.component";
 
 const routes: Routes = [
 	{
@@ -23,7 +23,7 @@ const routes: Routes = [
 			{
 				path: "proyecto",
 				component: TodoProyectoComponent,
-				canActivate: [LoginVerificationCanActivate],
+				canActivate: [LoginVerificationCanActivate]
 			},
 			{
 				path: "proyecto/:id",

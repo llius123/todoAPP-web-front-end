@@ -4,7 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { TodoInterface } from "../components/todo/todo-list/todo-list.component";
-import { ProyectoInterface } from '../components/proyecto/proyecto/proyecto.component';
+import { ProyectoInterface } from "../components/proyecto/proyecto/proyecto.component";
 
 @Injectable({
 	providedIn: "root"
@@ -12,12 +12,12 @@ import { ProyectoInterface } from '../components/proyecto/proyecto/proyecto.comp
 export class TodoService {
 	constructor(private httpClient: HttpClient) {}
 
-	//Guardo en este servicio el proyectro seleccionado
+	// Guardo en este servicio el proyectro seleccionado
 	public proyectoSeleccionado: ProyectoInterface;
 
 	public getTodoList(idProyecto: number): Observable<TodoInterface[]> {
 		return this.httpClient.get<TodoInterface[]>(
-			environment.apiPath + "todo/getAllTodo/"+idProyecto
+			environment.apiPath + "todo/getAllTodo/" + idProyecto
 		);
 	}
 
@@ -31,14 +31,20 @@ export class TodoService {
 		);
 	}
 
-	public editarSimpleTodo(todo: TodoInterface, idProyecto: number): Observable<any> {
+	public editarSimpleTodo(
+		todo: TodoInterface,
+		idProyecto: number
+	): Observable<any> {
 		return this.httpClient.put<any>(
 			environment.apiPath + "todo/updateSimpleTodo/" + idProyecto,
 			todo
 		);
 	}
 
-	public crearTodo(todo: TodoInterface, idProyecto: number): Observable<TodoInterface> {
+	public crearTodo(
+		todo: TodoInterface,
+		idProyecto: number
+	): Observable<TodoInterface> {
 		return this.httpClient.post<TodoInterface>(
 			environment.apiPath + "todo/createTodo/" + idProyecto,
 			todo
@@ -48,10 +54,15 @@ export class TodoService {
 	public getAllProyectos(): Observable<ProyectoInterface[]> {
 		return this.httpClient.get<ProyectoInterface[]>(
 			environment.apiPath + "proyecto/getAllProyecto"
-		)
+		);
 	}
 
-	public createProyecto(proyecto: ProyectoInterface): Observable<ProyectoInterface> {
-		return this.httpClient.post<ProyectoInterface>(environment.apiPath + "proyecto/createProyecto", proyecto)
+	public createProyecto(
+		proyecto: ProyectoInterface
+	): Observable<ProyectoInterface> {
+		return this.httpClient.post<ProyectoInterface>(
+			environment.apiPath + "proyecto/createProyecto",
+			proyecto
+		);
 	}
 }

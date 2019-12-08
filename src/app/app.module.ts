@@ -9,7 +9,7 @@ import { TodoModule } from "./todo/todo.module";
 import { LoginVerificationCanActivate } from "./global/loginVerification.service";
 import { AuthInterceptorService } from "./global/AuthInterceptor.service";
 import { ComponentModule } from "./components/components.module";
-import { UtilsService } from './global/utils.service';
+import { UtilsService } from "./global/utils.service";
 
 @NgModule({
 	declarations: [AppComponent],

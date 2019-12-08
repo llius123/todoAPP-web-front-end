@@ -25,13 +25,13 @@ export class AuthInterceptorService implements HttpInterceptor {
 		const token: string = this._loginService.token;
 		let request = req;
 		if (token || request.url.includes("login")) {
-			if(token){
+			if (token) {
 				request = req.clone({
 					setHeaders: {
 						authorization: token
 					}
 				});
-			}else{
+			} else {
 				request = req.clone();
 			}
 			return next.handle(request);

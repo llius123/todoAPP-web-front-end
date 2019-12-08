@@ -91,10 +91,10 @@ export class TodoListComponent implements OnInit {
 	 * @param todo Objeto TODO
 	 */
 	editCompletado(todo: TodoInterface) {
-		if(todo.completado === 1){
-			todo.completado = 0
-		}else{
-			todo.completado = 1
+		if (todo.completado === 1) {
+			todo.completado = 0;
+		} else {
+			todo.completado = 1;
 		}
 		this.completado.emit(todo);
 	}

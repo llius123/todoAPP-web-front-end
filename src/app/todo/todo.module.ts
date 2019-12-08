@@ -7,8 +7,8 @@ import { ListarTodoComponent } from "./listar-todo/listar-todo.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { SvgService } from "../global/svg.service";
 import { AppRoutingModule } from "../app-routing.module";
-import { TodoProyectoComponent } from './proyecto/todo-proyecto.component';
-import { ProyectoModule } from '../components/proyecto/proyecto.module';
+import { TodoProyectoComponent } from "./proyecto/todo-proyecto.component";
+import { ProyectoModule } from "../components/proyecto/proyecto.module";
 
 @NgModule({
 	declarations: [TodoComponent, ListarTodoComponent, TodoProyectoComponent],

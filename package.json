@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "lint": "tslint -p tsconfig.json -c tslint.json --fix",
     "e2e": "ng e2e",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\""
   },
