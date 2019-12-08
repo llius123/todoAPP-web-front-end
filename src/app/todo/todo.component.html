@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="navegacion">
-		<div class="item" [innerHTML]="todoSvgIcon" ></div>
+		<div (click)="navegacion('proyecto')" class="item" [innerHTML]="todoSvgIcon" ></div>
 	</div>
 	<div class="todo">
 		<router-outlet></router-outlet>

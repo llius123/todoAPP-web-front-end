@@ -50,4 +50,8 @@ export class TodoService {
 			environment.apiPath + "proyecto/getAllProyecto"
 		)
 	}
+
+	public createProyecto(proyecto: ProyectoInterface): Observable<ProyectoInterface> {
+		return this.httpClient.post<ProyectoInterface>(environment.apiPath + "proyecto/createProyecto", proyecto)
+	}
 }

@@ -31,8 +31,7 @@ export class TodoProyectoComponent implements OnInit {
 	}
 
 	private obtenerTodosProyectos(){
-		this.proyectos = [{	id: 1, usuarioId: 1, titulo: 'qwe'},{	id: 2, usuarioId: 1, titulo: 'qwe'},{	id: 3, usuarioId: 1, titulo: 'qwe'},{	id: 4, usuarioId: 1, titulo: 'qwe'}]
-		// this._todoService.getAllProyectos().subscribe(proyectos => {this.proyectos = proyectos})
+		this._todoService.getAllProyectos().subscribe(proyectos => {this.proyectos = proyectos})
 	}
 
 	public proyectoSeleccionado($event: ProyectoInterface){
@@ -50,5 +49,12 @@ export class TodoProyectoComponent implements OnInit {
 
 	public cancelar(){
 		this.mostrarNuevoHistorial = "none";
+	}
+
+	public guardar(){
+		this._todoService.createProyecto(this.formularioNuevoProyecto.getRawValue()).subscribe(
+			resp => {
+				this.proyectos.push(resp[0])
+			})
 	}
 }
