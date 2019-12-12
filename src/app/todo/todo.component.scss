@@ -32,6 +32,12 @@
 		margin-right: 30px;
 		background-color: $azul-claro-e;
 		padding: 0px 25px 0 25px;
+		breadcrum {
+			height: 80px;
+			display: inline-block;
+			padding-top: 5px;
+			padding-left: 5px;
+		}
 	}
 	.historial {
 		height: 100%;

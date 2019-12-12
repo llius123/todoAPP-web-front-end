@@ -31,6 +31,7 @@ export class ListarTodoComponent implements OnInit {
 	) {}
 
 	ngOnInit(): void {
+		this._activatedRoute.data.subscribe(data => this._todoService.obtenerBreadcrumDeLaRutaActual.emit(data))
 		this._activatedRoute.params.subscribe(params => {
 			this._idProyecto = params.id;
 			this.getAllTodo(params.id);

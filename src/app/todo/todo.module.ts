@@ -9,9 +9,10 @@ import { SvgService } from "../global/svg.service";
 import { AppRoutingModule } from "../app-routing.module";
 import { TodoProyectoComponent } from "./proyecto/todo-proyecto.component";
 import { ProyectoModule } from "../components/proyecto/proyecto.module";
+import { BreadcrumComponent } from './breadcrum/breadcrum.component';
 
 @NgModule({
-	declarations: [TodoComponent, ListarTodoComponent, TodoProyectoComponent],
+	declarations: [TodoComponent, ListarTodoComponent, TodoProyectoComponent, BreadcrumComponent],
 	imports: [
 		AppRoutingModule,
 		BrowserModule,

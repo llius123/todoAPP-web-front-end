@@ -15,6 +15,9 @@ export class TodoService {
 	// Guardo en este servicio el proyectro seleccionado
 	public proyectoSeleccionado: ProyectoInterface;
 
+	//Obtengo los breadcrumbs donde estoy
+	public obtenerBreadcrumDeLaRutaActual: EventEmitter<any> = new EventEmitter<any>();
+
 	public getTodoList(idProyecto: number): Observable<TodoInterface[]> {
 		return this.httpClient.get<TodoInterface[]>(
 			environment.apiPath + "todo/getAllTodo/" + idProyecto

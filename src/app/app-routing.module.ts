@@ -23,12 +23,20 @@ const routes: Routes = [
 			{
 				path: "proyecto",
 				component: TodoProyectoComponent,
-				canActivate: [LoginVerificationCanActivate]
+				canActivate: [LoginVerificationCanActivate],
+				data: {
+					padre: [],
+					hijo: 'Proyecto'
+				}
 			},
 			{
 				path: "proyecto/:id",
 				component: ListarTodoComponent,
-				canActivate: [LoginVerificationCanActivate]
+				canActivate: [LoginVerificationCanActivate],
+				data: {
+					padre: ['Proyecto'],
+					hijo: 'Todo'
+				}
 			},
 			{
 				path: "**",

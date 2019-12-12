@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { TodoService } from "../todo.service";
 import { ProyectoInterface } from "src/app/components/proyecto/proyecto/proyecto.component";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { FormGroup, FormControl } from "@angular/forms";
 
 @Component({
@@ -15,9 +15,11 @@ export class TodoProyectoComponent implements OnInit {
 	public mostrarNuevoHistorial = "none";
 
 	constructor(
-		private readonly _todoService: TodoService,
-		private readonly _router: Router
+		private _todoService: TodoService,
+		private readonly _router: Router,
+		private readonly _activatedRoute: ActivatedRoute,
 	) {
+		this._activatedRoute.data.subscribe(data => this._todoService.obtenerBreadcrumDeLaRutaActual.emit(data))
 		this.formularioNuevoProyecto = new FormGroup({
 			id: new FormControl(),
 			titulo: new FormControl()

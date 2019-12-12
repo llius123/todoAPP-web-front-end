@@ -1,0 +1,23 @@
+<div class="breadcrum-container">
+	<div *ngFor="let item of contenidoBreadcrum.padre; let i = i" class="caja padre">
+		{{item}}
+	</div>
+	<div class="separacion" *ngFor="let item of contenidoBreadcrum.padre; let i = i">
+	>
+	</div>
+	<div class="caja hijo">
+		{{contenidoBreadcrum.hijo}}
+	</div>
+	<!-- <div class="caja padre">
+	hola
+	</div>
+	<div class="caja padre">
+	hola
+	</div>
+	<div class="separacion">
+	>
+	</div>
+	<div class="caja hijo">
+	adios
+	</div> -->
+</div>
