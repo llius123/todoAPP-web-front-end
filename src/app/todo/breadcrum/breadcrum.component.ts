@@ -4,7 +4,8 @@ import { TodoService } from '../todo.service';
 
 export interface BreadcrumInterface {
 	padre: [string],
-	hijo: string
+	hijo: string,
+	ruta?: string
 }
 @Component({
 	selector: "breadcrum",
@@ -21,14 +22,18 @@ export class BreadcrumComponent implements OnInit {
 	}
 	private _contenidoBreadcrum: BreadcrumInterface = {padre: [''], hijo: ''};
 	constructor(
-		private _todoService: TodoService
+		private _todoService: TodoService,
+		private _router: Router
 	) {
 		this._todoService.obtenerBreadcrumDeLaRutaActual.subscribe(data => {
-			console.log(data.padre)
 			this.contenidoBreadcrum = data;
 		})
 	}
 
 	ngOnInit(): void {
+	}
+
+	public volverInicio($event: string){
+		this._router.navigate([$event])
 	}
 }

@@ -35,7 +35,8 @@ const routes: Routes = [
 				canActivate: [LoginVerificationCanActivate],
 				data: {
 					padre: ['Proyecto'],
-					hijo: 'Todo'
+					hijo: 'Todo',
+					ruta: 'todo/proyecto'
 				}
 			},
 			{

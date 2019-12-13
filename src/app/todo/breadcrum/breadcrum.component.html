@@ -1,23 +1,11 @@
 <div class="breadcrum-container">
-	<div *ngFor="let item of contenidoBreadcrum.padre; let i = i" class="caja padre">
+	<div (click)="volverInicio(contenidoBreadcrum.ruta)" *ngFor="let item of contenidoBreadcrum.padre; let i = i" class="caja padre fontfamily-formular">
 		{{item}}
 	</div>
-	<div class="separacion" *ngFor="let item of contenidoBreadcrum.padre; let i = i">
+	<div class="separacion fontfamily-formular" *ngFor="let item of contenidoBreadcrum.padre; let i = i">
 	>
 	</div>
-	<div class="caja hijo">
+	<div class="caja hijo fontfamily-formular">
 		{{contenidoBreadcrum.hijo}}
 	</div>
-	<!-- <div class="caja padre">
-	hola
-	</div>
-	<div class="caja padre">
-	hola
-	</div>
-	<div class="separacion">
-	>
-	</div>
-	<div class="caja hijo">
-	adios
-	</div> -->
 </div>
