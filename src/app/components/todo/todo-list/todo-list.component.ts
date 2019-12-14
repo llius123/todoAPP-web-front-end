@@ -58,17 +58,21 @@ export class TodoListComponent implements OnInit {
 		TodoInterface
 	>();
 	@Output() nuevo: EventEmitter<boolean> = new EventEmitter<boolean>();
+	@Output() eliminar: EventEmitter<TodoInterface> = new EventEmitter<TodoInterface>();
 
 	private _todos: TodoInterface[];
+	//SVG
 	public dragSvgIcon: SafeHtml;
 	public completadoSvgIcon: SafeHtml;
 	public noCompletadoSvgIcon: SafeHtml;
+	public garbageSvgIcon: SafeHtml;
 	ngOnInit() {
 		this.dragSvgIcon = this._svgService.getIconoEnSVG("drag_icon");
 		this.completadoSvgIcon = this._svgService.getIconoEnSVG("completado_icon");
 		this.noCompletadoSvgIcon = this._svgService.getIconoEnSVG(
 			"no_completado_icon"
 		);
+		this.garbageSvgIcon = this._svgService.getIconoEnSVG("garbageSvgIcon");
 	}
 	constructor(private _svgService: SvgService) {}
 
@@ -109,5 +113,9 @@ export class TodoListComponent implements OnInit {
 
 	nuevoTodo() {
 		this.nuevo.emit(true);
+	}
+
+	eliminarTodo(todo: TodoInterface){
+		this.eliminar.emit(todo)
 	}
 }

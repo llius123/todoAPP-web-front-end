@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="proyecto">
 		<div *ngFor="let proyecto of proyectos">
-			<proyecto-component [proyecto]="proyecto" (proyectoSeleccionado)="proyectoSeleccionado($event)"></proyecto-component>
+			<proyecto-component [proyecto]="proyecto" (proyectoSeleccionado)="proyectoSeleccionado($event)" (eliminarProyecto)="eliminarProyecto($event)"></proyecto-component>
 		</div>
 	</div>
 	<div class="historial" [style.display]="mostrarNuevoHistorial">

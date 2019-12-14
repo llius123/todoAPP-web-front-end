@@ -61,4 +61,8 @@ export class TodoProyectoComponent implements OnInit {
 				this.proyectos.push(resp[0]);
 			});
 	}
+
+	public eliminarProyecto($event: ProyectoInterface){
+		console.log($event)
+	}
 }

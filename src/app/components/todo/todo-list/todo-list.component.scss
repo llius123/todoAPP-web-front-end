@@ -1,23 +1,40 @@
+@import '../../../../styles.scss';
 ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  margin: 5px;
-  li {
-    padding: 5px;
-    &:nth-child(n){
-	  width: 10%;
-	  height: 35px;
-	  display: flex;
-	  align-items: center;
-    }
-    &:nth-child(3){
-      width: 70%;
-    }
-  }
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	margin: 5px;
+	li {
+		padding: 5px;
+		&:nth-child(n){
+		width: 10%;
+		height: 35px;
+		display: flex;
+		align-items: center;
+		}
+		&:nth-child(3){
+			width: 70%;
+		}
+	}
+}
+.garbage{
+	display: flex;
+	width: unset !important;
+	// border: $borderStyle $borderWidth $rojo-b;
+	border-radius: $borderRadius;
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2),
+	0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	box-sizing: border-box;
+	height: 100% !important;
+	cursor: pointer;
+	margin: 2px;
+	&:hover{
+		background-color: $rojo-d;
+		color: black;
+	}
 }
 //Estilo solo para el TODO de nuevo
 .nuevo {
@@ -26,7 +43,7 @@ ul {
 	cursor: pointer;
 }
 //Estilos drag
-.drag{
+.drag > .item{
   cursor: grab;
 }
 .done{

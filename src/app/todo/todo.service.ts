@@ -68,4 +68,8 @@ export class TodoService {
 			proyecto
 		);
 	}
+
+	public eliminarTodo(todo: TodoInterface): Observable<TodoInterface> {
+		return this.httpClient.delete<TodoInterface>(environment.apiPath + "proyecto/eliminarTodo/" + todo.id)
+	}
 }

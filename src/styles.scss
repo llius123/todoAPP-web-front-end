@@ -54,9 +54,18 @@ h1, h2, h3, h4, h5, h6{
 #todo_icon{
 	height: 60px;
 }
-#completado_icon , #no_completado_icon, #drag_icon{
+#completado_icon , #no_completado_icon, #drag_icon, #garbage_icon{
 	height: 25px;
 	width: 25px;
+}
+//Estilos en especifico para el icono de la papelera ya que cuando se hace un drag and drop se rompe
+.contenedor-garbage-icon {
+	height: 25px;
+	width: 25px;
+	// #garbage_icon {
+	// 	height: 25px;
+	// 	width: 25px;
+	// }
 }
 //Esto se pone asi para que cuando selecciono un TODO, los SVG mantengan la altura y la anchura
 .cdk-drag-preview > ul > li > .item > svg{

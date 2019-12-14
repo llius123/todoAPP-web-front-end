@@ -4,25 +4,28 @@
 			Nuevo
 		</span>
 	</div>
-  <div cdkDropList class="todo-list" (cdkDropListDropped)="drop($event)">
-    <div class="todo-box" *ngFor="let todo of todos; let i = index" cdkDrag>
-      <ng-container>
-        <ul>
-		  <li class="drag" cdkDragHandle>
+	<div cdkDropList class="todo-list" (cdkDropListDropped)="drop($event)">
+		<div class="todo-box" *ngFor="let todo of todos; let i = index" cdkDrag>
+		<ng-container>
+			<ul>
+			<li class="drag" cdkDragHandle>
 				<div class="item" [innerHTML]="dragSvgIcon" ></div>
-          </li>
-          <li class="done" (click)="editCompletado(todo)">
+			</li>
+			<li class="done" (click)="editCompletado(todo)">
 				<div class="item" [innerHTML]="completadoSvgIcon" *ngIf="todo.completado"></div>
 				<div class="item" [innerHTML]="noCompletadoSvgIcon" *ngIf="!todo.completado"></div>
-          </li>
-          <li (click)="editarTodo(todo)">
-            {{todo.titulo}}
-          </li>
-          <li>
-            <tag-component [tags]="todo.tag"></tag-component>
-          </li>
-        </ul>
-      </ng-container>
-    </div>
-  </div>
+			</li>
+			<li (click)="editarTodo(todo)">
+				{{todo.titulo}}
+			</li>
+			<li>
+				<tag-component [tags]="todo.tag"></tag-component>
+			</li>
+			<li class="garbage" (click)="eliminarTodo(todo)">
+				<div class="contenedor-garbage-icon" [innerHTML]="garbageSvgIcon" ></div>
+			</li>
+			</ul>
+		</ng-container>
+		</div>
+	</div>
 </ng-container>

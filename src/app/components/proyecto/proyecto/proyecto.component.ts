@@ -21,6 +21,9 @@ export class ProyectoComponent implements OnInit {
 	@Output() proyectoSeleccionado: EventEmitter<
 		ProyectoInterface
 	> = new EventEmitter<ProyectoInterface>();
+	@Output() eliminarProyecto: EventEmitter<
+		ProyectoInterface
+	> = new EventEmitter<ProyectoInterface>();
 
 	private _proyecto: ProyectoInterface;
 	ngOnInit() {}
@@ -28,5 +31,9 @@ export class ProyectoComponent implements OnInit {
 
 	public emitirProyectoSeleccionadop() {
 		this.proyectoSeleccionado.emit(this.proyecto);
+	}
+
+	public eliminar(){
+		this.eliminarProyecto.emit(this.proyecto)
 	}
 }

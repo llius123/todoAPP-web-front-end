@@ -135,4 +135,17 @@ export class ListarTodoComponent implements OnInit {
 	public cancelar() {
 		this.mostrarEdicionTodo = "none";
 	}
+	//Elimino un todo
+	public eliminarTodo($event: TodoInterface){
+		this._todoService.eliminarTodo($event).subscribe(
+			resp => {
+				this.todoList.forEach((element: TodoInterface, index:number) => {
+					if(element.id == $event.id){
+						this.todoList.splice(index,1)
+					}
+				});
+			},
+			error => {
+			})
+	}
 }

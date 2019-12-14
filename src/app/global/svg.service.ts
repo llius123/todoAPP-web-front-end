@@ -12,18 +12,16 @@ export class SvgService {
 		switch (icono) {
 			case "todo_icon":
 				return this.sanitizer.bypassSecurityTrustHtml(svg.todo_icon.icon);
-				break;
 			case "completado_icon":
 				return this.sanitizer.bypassSecurityTrustHtml(svg.completado_icon.icon);
-				break;
 			case "no_completado_icon":
 				return this.sanitizer.bypassSecurityTrustHtml(
 					svg.no_completado_icon.icon
 				);
-				break;
 			case "drag_icon":
 				return this.sanitizer.bypassSecurityTrustHtml(svg.drag_icon.icon);
-				break;
+			case "garbageSvgIcon":
+				return this.sanitizer.bypassSecurityTrustHtml(svg.garbage_icon.icon);
 		}
 	}
 }
