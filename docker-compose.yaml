@@ -1,0 +1,11 @@
+version: '0.1'
+
+services:
+  mysql:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: todoApp
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ~/docker/mysql-data:/var/lib/mysql
