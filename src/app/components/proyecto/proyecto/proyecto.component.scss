@@ -6,9 +6,18 @@ $sombraBorde: 0 4px 6px -1px rgba(0, 0, 0, 0.2),0 2px 4px -1px rgba(0, 0, 0, 0.0
 	border-radius: $borderRadius;
 	box-shadow: $sombraBorde;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	background-color: white;
 	overflow: hidden;
 	padding: 5px;
 	margin: 5px;
+	.contenido {
+		height: 90%;
+	}
+	.botones {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		bottom: 0;
+	}
 }

@@ -20,8 +20,10 @@ export class SvgService {
 				);
 			case "drag_icon":
 				return this.sanitizer.bypassSecurityTrustHtml(svg.drag_icon.icon);
-			case "garbageSvgIcon":
+			case "garbage_icon":
 				return this.sanitizer.bypassSecurityTrustHtml(svg.garbage_icon.icon);
+			case "arrow_icon":
+				return this.sanitizer.bypassSecurityTrustHtml(svg.arrow_icon.icon);
 		}
 	}
 }

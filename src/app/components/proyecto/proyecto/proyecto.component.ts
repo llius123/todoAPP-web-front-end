@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { SvgService } from 'src/app/global/svg.service';
+import { SafeHtml } from '@angular/platform-browser';
 
 export interface ProyectoInterface {
 	id: number;
@@ -26,8 +28,14 @@ export class ProyectoComponent implements OnInit {
 	> = new EventEmitter<ProyectoInterface>();
 
 	private _proyecto: ProyectoInterface;
-	ngOnInit() {}
-	constructor() {}
+
+	public deleteSvgIcon: SafeHtml;
+	public arrowSvgIcon: SafeHtml;
+	constructor(private readonly _svgService: SvgService) {}
+	ngOnInit() {
+		this.deleteSvgIcon = this._svgService.getIconoEnSVG("garbage_icon");
+		this.arrowSvgIcon = this._svgService.getIconoEnSVG("arrow_icon");
+	}
 
 	public emitirProyectoSeleccionadop() {
 		this.proyectoSeleccionado.emit(this.proyecto);

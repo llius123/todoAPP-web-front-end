@@ -72,7 +72,7 @@ export class TodoListComponent implements OnInit {
 		this.noCompletadoSvgIcon = this._svgService.getIconoEnSVG(
 			"no_completado_icon"
 		);
-		this.garbageSvgIcon = this._svgService.getIconoEnSVG("garbageSvgIcon");
+		this.garbageSvgIcon = this._svgService.getIconoEnSVG("garbage_icon");
 	}
 	constructor(private _svgService: SvgService) {}
 

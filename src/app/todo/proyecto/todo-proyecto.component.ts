@@ -63,6 +63,15 @@ export class TodoProyectoComponent implements OnInit {
 	}
 
 	public eliminarProyecto($event: ProyectoInterface){
-		console.log($event)
+		this._todoService.eliminarProyecto($event.id).subscribe(
+			resp => {
+				this.proyectos.forEach((element: ProyectoInterface, index:number) => {
+					if(element.id == $event.id){
+						this.proyectos.splice(index,1)
+					}
+				});
+			},
+			error => {
+			})
 	}
 }

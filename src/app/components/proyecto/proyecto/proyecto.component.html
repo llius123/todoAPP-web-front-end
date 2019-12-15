@@ -1,7 +1,15 @@
 <ng-container>
-	<span>
-		{{proyecto.titulo}}
-	</span>
-	<button (click)="emitirProyectoSeleccionadop()">Entrar</button>
-	<button (click)="eliminar()" >Eliminar</button>
+	<div class="contenido">
+		<span>
+			{{proyecto.titulo}}
+		</span>
+	</div>
+	<div class="botones">
+		<button class="eliminar" (click)="eliminar()" >
+			<div class="contenedor-delete-icon" [innerHTML]="deleteSvgIcon" ></div>
+		</button>
+		<button class="guardar" (click)="emitirProyectoSeleccionadop()">
+			<div class="contenedor-arrow-icon" [innerHTML]="arrowSvgIcon" ></div>
+		</button>
+	</div>
 </ng-container>

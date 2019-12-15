@@ -70,6 +70,10 @@ export class TodoService {
 	}
 
 	public eliminarTodo(todo: TodoInterface): Observable<TodoInterface> {
-		return this.httpClient.delete<TodoInterface>(environment.apiPath + "proyecto/eliminarTodo/" + todo.id)
+		return this.httpClient.delete<TodoInterface>(environment.apiPath + "todo/eliminarTodo/" + todo.id)
+	}
+	
+	public eliminarProyecto(idProyecto: number): Observable<TodoInterface> {
+		return this.httpClient.delete<TodoInterface>(environment.apiPath + "proyecto/eliminarProyecto/" + idProyecto)
 	}
 }

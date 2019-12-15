@@ -54,9 +54,12 @@ h1, h2, h3, h4, h5, h6{
 #todo_icon{
 	height: 60px;
 }
-#completado_icon , #no_completado_icon, #drag_icon, #garbage_icon{
+#completado_icon , #no_completado_icon, #drag_icon, #garbage_icon, #arrow_icon{
 	height: 25px;
 	width: 25px;
+}
+#arrow_background_color {
+	fill: white;
 }
 //Estilos en especifico para el icono de la papelera ya que cuando se hace un drag and drop se rompe
 .contenedor-garbage-icon {
@@ -123,6 +126,11 @@ button {
 	color: #4191D7;
 	background-color: white;
 	border: $borderWidth solid $azul-claro-c;
+}
+.eliminar {
+	color: $azul-claro-a;
+	background-color: white;
+	border: $borderWidth solid $rojo-b;
 }
 
 //FUENTES
