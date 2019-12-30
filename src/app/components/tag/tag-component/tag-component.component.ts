@@ -3,6 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 export interface TagInterface {
 	id: number;
 	titulo: string;
+	proyecto_id: number;
 }
 @Component({
 	selector: "tag-component",

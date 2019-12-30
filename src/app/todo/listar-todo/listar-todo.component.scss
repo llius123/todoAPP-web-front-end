@@ -21,6 +21,19 @@
 					.guardar {
 						float: right;
 					}
+					.input-boton, .select-boton{
+						display: flex;
+						flex-direction: row;
+						justify-content: space-between;
+						align-items: center;
+						margin: 2px 0 2px 0;
+						select, input {
+							width: 60%
+						}
+						button {
+							width: 70px;
+						}
+					}
 				}
 			}
 		}

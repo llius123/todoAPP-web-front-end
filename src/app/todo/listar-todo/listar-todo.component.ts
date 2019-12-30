@@ -1,11 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { TodoInterface } from "src/app/components/todo/todo-list/todo-list.component";
 import { TodoService } from "../todo.service";
-import * as svg from "svg";
-import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 import { UtilsService } from "src/app/global/utils.service";
 import { ActivatedRoute } from "@angular/router";
 import { FormControl, FormGroup } from "@angular/forms";
+import { TagInterface } from 'src/app/components/tag/tag-component/tag-component.component';
 @Component({
 	selector: "listar-todo",
 	templateUrl: "./listar-todo.component.html",
@@ -24,6 +23,8 @@ export class ListarTodoComponent implements OnInit {
 	public formdata: FormGroup;
 
 	private _idProyecto: number;
+
+	public tagList: TagInterface[];
 	constructor(
 		private _todoService: TodoService,
 		private _utilsService: UtilsService,
@@ -35,6 +36,7 @@ export class ListarTodoComponent implements OnInit {
 		this._activatedRoute.params.subscribe(params => {
 			this._idProyecto = params.id;
 			this.getAllTodo(params.id);
+			this.getAllTag(params.id)
 		});
 		this.formdata = new FormGroup({
 			id: new FormControl(),
@@ -43,6 +45,12 @@ export class ListarTodoComponent implements OnInit {
 			orden: new FormControl(),
 			completado: new FormControl()
 		});
+	}
+	// Obtengo todos los tags
+	public getAllTag(idProyecto: number){
+		this._todoService.getAllTag(idProyecto).subscribe(tag => {
+			this.tagList = tag;
+		})
 	}
 	// Obtengo todos los todo
 	public getAllTodo(idProyecto: number) {
@@ -147,5 +155,13 @@ export class ListarTodoComponent implements OnInit {
 			},
 			error => {
 			})
+	}
+	//Elimino el tag seleccionado del dropdown
+	public eliminarTagDelDesplegable(opcionSeleccionado: number){
+		this._todoService.eliminarTag(this.tagList[opcionSeleccionado].id).subscribe(
+			resp => {
+				this.tagList.splice(opcionSeleccionado);
+			}
+		);
 	}
 }

@@ -23,6 +23,21 @@
 						<textarea formControlName="descripcion" rows="4" cols="30"></textarea> 
 					</li>
 					<li>
+						<h3>Tag</h3>
+						<div class="input-boton">
+							<input type="text">
+							<button class="cancelar" (click)="addTag()">+ Tag</button>
+							<button class="cancelar" [hidden]="true"></button>
+						</div>
+						<div class="select-boton">
+							<select #tag>
+								<option *ngFor="let tag of tagList">{{tag.titulo}}</option>
+							</select>
+							<button class="cancelar" (click)="eliminarTagDelDesplegable(tag.selectedIndex)">X</button>
+							<button class="cancelar" >+</button>
+						</div>
+					</li>
+					<li>
 						<button class="cancelar" (click)="cancelar()">Cancelar</button>
 						<button class="guardar" (click)="guardar()">Guardar</button>
 					</li>

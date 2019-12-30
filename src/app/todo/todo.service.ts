@@ -5,6 +5,7 @@ import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { TodoInterface } from "../components/todo/todo-list/todo-list.component";
 import { ProyectoInterface } from "../components/proyecto/proyecto/proyecto.component";
+import { TagInterface } from '../components/tag/tag-component/tag-component.component';
 
 @Injectable({
 	providedIn: "root"
@@ -70,10 +71,18 @@ export class TodoService {
 	}
 
 	public eliminarTodo(todo: TodoInterface): Observable<TodoInterface> {
-		return this.httpClient.delete<TodoInterface>(environment.apiPath + "todo/eliminarTodo/" + todo.id)
+		return this.httpClient.delete<TodoInterface>(environment.apiPath + "todo/eliminarTodo/" + todo.id);
 	}
 	
 	public eliminarProyecto(idProyecto: number): Observable<TodoInterface> {
-		return this.httpClient.delete<TodoInterface>(environment.apiPath + "proyecto/eliminarProyecto/" + idProyecto)
+		return this.httpClient.delete<TodoInterface>(environment.apiPath + "proyecto/eliminarProyecto/" + idProyecto);
+	}
+
+	public getAllTag(idProyecto: number): Observable<TagInterface[]> {
+		return this.httpClient.get<TagInterface[]>(environment.apiPath + "tag/getAllTag/" + idProyecto);
+	}
+
+	public eliminarTag(idTag: number): Observable<any> {
+		return this.httpClient.delete<any>(environment.apiPath + "tag/eliminarTag/" + idTag)
 	}
 }
