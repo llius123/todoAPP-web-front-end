@@ -34,7 +34,7 @@
 								<option *ngFor="let tag of tagList">{{tag.titulo}}</option>
 							</select>
 							<button class="cancelar" (click)="eliminarTagDelDesplegable(tag.selectedIndex)">X</button>
-							<button class="cancelar" >+</button>
+							<button class="cancelar" (click)="anyadirTagDelDesplegable(tag.selectedIndex)">+</button>
 						</div>
 					</li>
 					<li>

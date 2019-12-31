@@ -85,4 +85,8 @@ export class TodoService {
 	public eliminarTag(idTag: number): Observable<any> {
 		return this.httpClient.delete<any>(environment.apiPath + "tag/eliminarTag/" + idTag)
 	}
+
+	public anyadirTagAlTodo(idTag: number): Observable<any> {
+		return null;
+	}
 }

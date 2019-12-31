@@ -164,4 +164,11 @@ export class ListarTodoComponent implements OnInit {
 			}
 		);
 	}
+	//Añado el tag seleccionado al todo nuevo/editado
+	public anyadirTagDelDesplegable(opcionSeleccionado: number){
+		//Si el id del formulario es null significa que estoy creando uno nuevo
+		if(this.formdata.get('id').value == null){
+
+		}
+	}
 }
