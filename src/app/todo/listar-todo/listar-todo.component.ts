@@ -130,8 +130,14 @@ export class ListarTodoComponent implements OnInit {
 		} else {
 			this._todoService.crearTodo(todo, this._idProyecto).subscribe(
 				resp => {
-					console.log(resp);
 					this.todoList.push(todo);
+					this.formdata.patchValue({
+						id: resp[0].id,
+						titulo: resp[0].titulo,
+						descripcion: resp[0].descripcion,
+						orden: resp[0].orden,
+						completado: resp[0].completado
+					});
 				},
 				error => {
 					console.log(error);

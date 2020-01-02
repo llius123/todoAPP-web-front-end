@@ -22,7 +22,7 @@
 						<h3>Descripcion</h3>
 						<textarea formControlName="descripcion" rows="4" cols="30"></textarea> 
 					</li>
-					<li>
+					<li *ngIf="formdata.get('id').value !== null">
 						<h3>Tag</h3>
 						<div class="input-boton">
 							<input type="text">
