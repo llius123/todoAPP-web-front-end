@@ -6,10 +6,14 @@
 	</div>
 	<div class="botones">
 		<button class="eliminar" (click)="eliminar()" >
-			<div class="contenedor-delete-icon" [innerHTML]="deleteSvgIcon" ></div>
+			<div class="contenedor-delete-icon" >
+				<i class="icono-papelera"></i>
+			</div>
 		</button>
 		<button class="guardar" (click)="emitirProyectoSeleccionadop()">
-			<div class="contenedor-arrow-icon" [innerHTML]="arrowSvgIcon" ></div>
+			<div class="contenedor-arrow-icon" >
+				<i class="icono-entrar-todo"></i>
+			</div>
 		</button>
 	</div>
 </ng-container>

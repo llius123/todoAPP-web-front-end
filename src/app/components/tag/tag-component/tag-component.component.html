@@ -1,7 +1,15 @@
 <ng-container>
-  <ul *ngFor="let tag of tags">
-    <li>
-      {{tag.titulo}}
-    </li>
-  </ul>
+	<ul *ngFor="let tag of tags">
+		<li *ngIf="tagsConTextoAcortado" >
+			{{tag.titulo | acortadorTextoPipe}}
+		</li>
+		<li *ngIf="tagsSinTextoAcortado" >
+			{{tag.titulo}}
+		</li>
+	</ul>
+	<ul>
+		<li class="numeroTags" *ngIf="numeroDeTags">
+			+ {{tags.length}} tags
+		</li>
+	</ul>
 </ng-container>

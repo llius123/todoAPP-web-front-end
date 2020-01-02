@@ -1,14 +1,27 @@
+@import '../../../../variables.scss';
+
 :host {
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    li {
-      padding: 5px;
-      background-color: red;
-    }
-  }
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		margin: 0 1px 0 1px;
+		li {
+			padding: 5px;
+			box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+			border-radius: $borderRadius;
+			height: 25px;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+	.numeroTags{
+		width: 80px;
+		height: 25px;
+	}
 }

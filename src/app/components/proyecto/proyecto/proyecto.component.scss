@@ -1,5 +1,7 @@
 $borderRadius: 5px;
 $sombraBorde: 0 4px 6px -1px rgba(0, 0, 0, 0.2),0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$rojo-d: #FEB2B2;
+$azul-claro-d: #DCEBFA;
 :host {
 	width: 200px;
 	height: 150px;
@@ -19,5 +21,19 @@ $sombraBorde: 0 4px 6px -1px rgba(0, 0, 0, 0.2),0 2px 4px -1px rgba(0, 0, 0, 0.0
 		flex-direction: row;
 		justify-content: space-between;
 		bottom: 0;
+	}
+	button{
+		color: black;
+		border-radius: $borderRadius;
+		box-shadow: $sombraBorde;
+		border: unset;
+		border-color: unset;
+		background-color: unset;
+	}
+	.eliminar:hover{
+		background-color: $rojo-d;
+	}
+	.guardar:hover{
+		background-color: $azul-claro-d;
 	}
 }

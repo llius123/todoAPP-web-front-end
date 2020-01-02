@@ -25,6 +25,7 @@ export class ListarTodoComponent implements OnInit {
 	private _idProyecto: number;
 
 	public tagList: TagInterface[];
+	public tagDelTodo: TagInterface[];
 	constructor(
 		private _todoService: TodoService,
 		private _utilsService: UtilsService,
@@ -79,6 +80,7 @@ export class ListarTodoComponent implements OnInit {
 			orden: $event.orden,
 			completado: $event.completado
 		});
+		this.tagDelTodo = $event.tag;
 	}
 	// Editar lista de todos
 	public editarListaTodo(todo: TodoInterface) {
@@ -166,15 +168,34 @@ export class ListarTodoComponent implements OnInit {
 	public eliminarTagDelDesplegable(opcionSeleccionado: number){
 		this._todoService.eliminarTag(this.tagList[opcionSeleccionado].id).subscribe(
 			resp => {
-				this.tagList.splice(opcionSeleccionado);
+				this.tagList.splice(opcionSeleccionado, 1);
+				this.getAllTag(this._idProyecto)
 			}
 		);
 	}
-	//Añado el tag seleccionado al todo nuevo/editado
-	public anyadirTagDelDesplegable(opcionSeleccionado: number){
-		//Si el id del formulario es null significa que estoy creando uno nuevo
-		if(this.formdata.get('id').value == null){
+	//Añado el tag que se acaba de crear con el input
+	public crearYEnlazarTagConTodo(tituloTag: string){
+		this._todoService.crearYEnlazarTagConTodo(this._idProyecto, this.formdata.get("id").value, { id: null, titulo: tituloTag, proyecto_id: this._idProyecto} ).subscribe(
+			resp => {
+				console.log(resp)
+				this.getAllTag(this._idProyecto)
+			},
+			error => {
+				console.log(error)
+			}
+		)
+	}
 
-		}
+	//Enlazo un tag ya existente con el todo 
+	public enlazarTagConTodo(opcionSeleccionado: number) {
+		this._todoService.crearYEnlazarTagConTodo(this._idProyecto, this.formdata.get("id").value, this.tagList[opcionSeleccionado]).subscribe(
+			resp => {
+				console.log(resp)
+				this.getAllTag(this._idProyecto)
+			},
+			error => {
+				console.log(error)
+			}
+		)
 	}
 }

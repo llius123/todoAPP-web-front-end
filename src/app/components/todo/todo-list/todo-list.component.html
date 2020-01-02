@@ -9,11 +9,13 @@
 		<ng-container>
 			<ul>
 			<li class="drag" cdkDragHandle>
-				<div class="item" [innerHTML]="dragSvgIcon" ></div>
+				<div class="item">
+					<i class="icono-drag-simple-todo"></i>
+				</div>
 			</li>
 			<li class="done" (click)="editCompletado(todo)">
-				<div class="item" [innerHTML]="completadoSvgIcon" *ngIf="todo.completado"></div>
-				<div class="item" [innerHTML]="noCompletadoSvgIcon" *ngIf="!todo.completado"></div>
+				<div class="item icono-checbox-true" *ngIf="todo.completado"></div>
+				<div class="item icono-checbox-false" *ngIf="!todo.completado"></div>
 			</li>
 			<li (click)="editarTodo(todo)">
 				{{todo.titulo}}
@@ -22,7 +24,10 @@
 				<tag-component [tags]="todo.tag"></tag-component>
 			</li>
 			<li class="garbage" (click)="eliminarTodo(todo)">
-				<div class="contenedor-garbage-icon" [innerHTML]="garbageSvgIcon" ></div>
+				<div>
+					<i class="icono-papelera"></i>
+				</div>
+				<!-- <div class="contenedor-garbage-icon icono-papelera" ></div> -->
 			</li>
 			</ul>
 		</ng-container>

@@ -28,6 +28,15 @@
 		position: absolute;
 		right: 0;
 		bottom: 0;
+		button{
+			color: black;
+			border-radius: $borderRadius;
+			box-shadow: $sombraBorde;
+			border: unset;
+			border-color: unset;
+			background-color: $azul-claro-a;
+		}
+		margin: 0 15px 15px 0;
 	}
 	//Media query para moviles
 	/* Smartphones (portrait) ----------- */

@@ -89,4 +89,12 @@ export class TodoService {
 	public anyadirTagAlTodo(idTag: number): Observable<any> {
 		return null;
 	}
+
+	public crearYEnlazarTagConTodo(idProyecto: number, idTodo: number, tag: TagInterface): Observable<any> {
+		return this.httpClient.post(environment.apiPath + `tagtodo/crearEnlazarTagConTodo/${idProyecto}/${idTodo}`, tag);
+	}
+
+	public getSimpleTodo(idProyecto: number,  idTodo: number): Observable<TodoInterface>{
+		return this.httpClient.get<TodoInterface>(environment.apiPath + `/todo/getSimpleTodo/${idProyecto}/${idTodo}`);
+	}
 }

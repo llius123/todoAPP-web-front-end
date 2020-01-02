@@ -24,9 +24,12 @@
 					</li>
 					<li *ngIf="formdata.get('id').value !== null">
 						<h3>Tag</h3>
+						<div class="tagContenedor">
+							<p class="tituloTag" *ngFor="let tag of tagDelTodo">{{tag.titulo}}</p>
+						</div>
 						<div class="input-boton">
-							<input type="text">
-							<button class="cancelar" (click)="addTag()">+ Tag</button>
+							<input type="text" #inputNuevoTag>
+							<button class="cancelar" (click)="crearYEnlazarTagConTodo(inputNuevoTag.value)">+ Tag</button>
 							<button class="cancelar" [hidden]="true"></button>
 						</div>
 						<div class="select-boton">
@@ -34,7 +37,7 @@
 								<option *ngFor="let tag of tagList">{{tag.titulo}}</option>
 							</select>
 							<button class="cancelar" (click)="eliminarTagDelDesplegable(tag.selectedIndex)">X</button>
-							<button class="cancelar" (click)="anyadirTagDelDesplegable(tag.selectedIndex)">+</button>
+							<button class="cancelar" (click)="enlazarTagConTodo(tag.selectedIndex)">+</button>
 						</div>
 					</li>
 					<li>

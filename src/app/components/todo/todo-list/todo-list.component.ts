@@ -7,13 +7,14 @@ export interface TodoInterface {
 	id: number;
 	titulo: string;
 	descripcion: string;
-	tag: TagInterface;
+	tag: TagInterface[];
 	orden: number;
 	completado: number;
 }
 export interface TagInterface {
 	id: number;
 	titulo: string;
+	proyecto_id: number;
 }
 @Component({
 	selector: "todo-list",
