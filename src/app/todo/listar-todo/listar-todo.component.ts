@@ -166,7 +166,6 @@ export class ListarTodoComponent implements OnInit {
 	}
 	//Elimino un todo
 	public eliminarTodo($event: TodoInterface){
-		$event = $event[0];
 		this._todoService.eliminarTodo($event).subscribe(
 			resp => {
 				this.todoList.forEach((element: TodoInterface, index:number) => {
