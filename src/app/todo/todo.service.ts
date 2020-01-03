@@ -86,8 +86,11 @@ export class TodoService {
 		return this.httpClient.delete<any>(environment.apiPath + "tag/eliminarTag/" + idTag)
 	}
 
-	public anyadirTagAlTodo(idTag: number): Observable<any> {
-		return null;
+	public enlazarTagConTodo(idProyecto: number, idTodo: number, idTag: number): Observable<any> {
+		return this.httpClient.post(environment.apiPath + `tagtodo/enlazarTagConTodo/${idProyecto}/${idTodo}/${idTag}`, null);
+	}
+	public eliminarEnlaceTagConTodo(idProyecto: number, idTodo: number, idTag: number): Observable<any> {
+		return this.httpClient.delete(environment.apiPath + `tagtodo/eliminarEnlazeTagConTodo/${idProyecto}/${idTodo}/${idTag}`);
 	}
 
 	public crearYEnlazarTagConTodo(idProyecto: number, idTodo: number, tag: TagInterface): Observable<any> {
@@ -95,6 +98,10 @@ export class TodoService {
 	}
 
 	public getSimpleTodo(idProyecto: number,  idTodo: number): Observable<TodoInterface>{
-		return this.httpClient.get<TodoInterface>(environment.apiPath + `/todo/getSimpleTodo/${idProyecto}/${idTodo}`);
+		return this.httpClient.get<TodoInterface>(environment.apiPath + `todo/getSimpleTodo/${idProyecto}/${idTodo}`);
+	}
+
+	public getAllTagsByTodo(idProyecto: number, idTodo: number): Observable<TagInterface[]> {
+		return this.httpClient.get<TagInterface[]>(environment.apiPath + `tag/getAllTagByTodo/${idProyecto}/${idTodo}`);
 	}
 }

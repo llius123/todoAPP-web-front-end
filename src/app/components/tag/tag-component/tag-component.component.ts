@@ -30,12 +30,12 @@ export class TagComponent implements OnInit {
 
 	public queTagsHayQueMostrar(){
 		this.esconderTodosLosTags();
-		if(this._tags.length > 3){
+		if(this.tags.length > 3){
 			this.numeroDeTags = true;
 		}
-		if(this._tags.length < 4){
+		if(this.tags.length < 4){
 			let acortarTexto = false;
-			for (const tag in this._tags) {
+			for (const tag in this.tags) {
 				if(tag && this._tags[tag].titulo.length > 5){
 					acortarTexto = true;
 				}
@@ -52,5 +52,6 @@ export class TagComponent implements OnInit {
 	private esconderTodosLosTags(){
 		this.numeroDeTags = false;
 		this.tagsConTextoAcortado = false;
+		this.tagsSinTextoAcortado = false;
 	}
 }

@@ -1,10 +1,11 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild, ViewChildren } from "@angular/core";
 import { TodoInterface } from "src/app/components/todo/todo-list/todo-list.component";
 import { TodoService } from "../todo.service";
 import { UtilsService } from "src/app/global/utils.service";
 import { ActivatedRoute } from "@angular/router";
 import { FormControl, FormGroup } from "@angular/forms";
 import { TagInterface } from 'src/app/components/tag/tag-component/tag-component.component';
+import { EventoModalInterface, EventoModalEnum } from 'src/app/components/modal/modal-component/modal.component';
 @Component({
 	selector: "listar-todo",
 	templateUrl: "./listar-todo.component.html",
@@ -26,11 +27,14 @@ export class ListarTodoComponent implements OnInit {
 
 	public tagList: TagInterface[];
 	public tagDelTodo: TagInterface[];
+
+	@ViewChild("tagModal",  {static:false}) tagModal : any;
 	constructor(
 		private _todoService: TodoService,
 		private _utilsService: UtilsService,
 		private readonly _activatedRoute: ActivatedRoute
-	) {}
+	) {
+	}
 
 	ngOnInit(): void {
 		this._activatedRoute.data.subscribe(data => this._todoService.obtenerBreadcrumDeLaRutaActual.emit(data))
@@ -51,6 +55,7 @@ export class ListarTodoComponent implements OnInit {
 	public getAllTag(idProyecto: number){
 		this._todoService.getAllTag(idProyecto).subscribe(tag => {
 			this.tagList = tag;
+			this.tagModal.tagList = tag;
 		})
 	}
 	// Obtengo todos los todo
@@ -58,6 +63,14 @@ export class ListarTodoComponent implements OnInit {
 		this._todoService.getTodoList(idProyecto).subscribe(todo => {
 			this.todoList = todo;
 		});
+	}
+	//Obtengo un simple todo
+	public getSimpleTodo(idTodo: number){
+		this._todoService.getSimpleTodo(this._idProyecto, this.formdata.get("id").value).subscribe(
+			resp => {
+				this.editarSimpleTodo(resp)
+			}
+		)
 	}
 	// Cuando hago un drag se ejecuta este metodo
 	public drag($event: {
@@ -188,13 +201,61 @@ export class ListarTodoComponent implements OnInit {
 
 	//Enlazo un tag ya existente con el todo 
 	public enlazarTagConTodo(opcionSeleccionado: number) {
-		this._todoService.crearYEnlazarTagConTodo(this._idProyecto, this.formdata.get("id").value, this.tagList[opcionSeleccionado]).subscribe(
+		let esUnTagDelTodo = false;
+		for (const tag in this.tagDelTodo) {
+			if(this.tagList[opcionSeleccionado].id === this.tagDelTodo[tag].id){
+				esUnTagDelTodo = true;
+			}
+		}
+		if(!esUnTagDelTodo){
+			this._todoService.enlazarTagConTodo(this._idProyecto, this.formdata.get("id").value, this.tagList[opcionSeleccionado].id).subscribe(
+				resp => {
+					console.log(resp)
+					this.getAllTag(this._idProyecto);
+					this.tagDelTodo.push(this.tagList[opcionSeleccionado]);
+				},
+				error => {
+					console.log(error);
+				}
+			)
+		}
+	}
+
+	//Elimino el tag que esta enlazado a un todo
+	public eliminarEnlaceTagTodo(tag: TagInterface,index: number){
+		this._todoService.eliminarEnlaceTagConTodo(
+			this._idProyecto,
+			this.formdata.get("id").value,
+			tag.id
+		).subscribe(resp => {
+			this.tagDelTodo.splice(index, 1)
+		})
+	}
+
+	//Abro el modal
+	public abrirModal(){
+		this.tagModal.tagList = this.tagList;
+		this.tagModal.cambiarEstadoModal(false)
+	}
+
+	//Escucho los eventos del componente modal
+	public escucharEventosModal($event: EventoModalInterface){
+		switch ($event.accion) {
+			case EventoModalEnum.NUEVO_TAG:
+				this.crearYEnlazarTagConTodo($event.titulo);
+				this.obtenerTodosLosTagAsociadosAlTodoSeleccionado()
+				break;
+		}
+	}
+
+	//Obtengo todos los tags asociados al todo seleccionado
+	public obtenerTodosLosTagAsociadosAlTodoSeleccionado(){
+		this._todoService.getAllTagsByTodo(this._idProyecto, this.formdata.get("id").value).subscribe(
 			resp => {
-				console.log(resp)
-				this.getAllTag(this._idProyecto)
-			},
-			error => {
-				console.log(error)
+				this.tagDelTodo = resp;
+				let todoConTagsActualizado: TodoInterface = this.formdata.getRawValue();
+				todoConTagsActualizado = {...todoConTagsActualizado, tag: resp};
+				this.editarListaTodo(todoConTagsActualizado)
 			}
 		)
 	}

@@ -25,9 +25,16 @@
 					<li *ngIf="formdata.get('id').value !== null">
 						<h3>Tag</h3>
 						<div class="tagContenedor">
-							<p class="tituloTag" *ngFor="let tag of tagDelTodo">{{tag.titulo}}</p>
+							<div class="tituloTag" *ngFor="let tag of tagDelTodo; let i = index">
+								<div>
+									{{tag.titulo}}
+								</div>
+								<div class="iconoCerrar" (click)="eliminarEnlaceTagTodo(tag, i)">
+									<i class="icono-cerrar"></i>
+								</div>
+							</div>
 						</div>
-						<div class="input-boton">
+						<!-- <div class="input-boton">
 							<input type="text" #inputNuevoTag>
 							<button class="cancelar" (click)="crearYEnlazarTagConTodo(inputNuevoTag.value)">+ Tag</button>
 							<button class="cancelar" [hidden]="true"></button>
@@ -38,7 +45,8 @@
 							</select>
 							<button class="cancelar" (click)="eliminarTagDelDesplegable(tag.selectedIndex)">X</button>
 							<button class="cancelar" (click)="enlazarTagConTodo(tag.selectedIndex)">+</button>
-						</div>
+						</div> -->
+						<button (click)="abrirModal()">ABRIR</button>
 					</li>
 					<li>
 						<button class="cancelar" (click)="cancelar()">Cancelar</button>
@@ -48,4 +56,5 @@
 			</form>
 		</ng-container>
 	</div>
+	<modal-component (eventosModal)="escucharEventosModal($event)" #tagModal></modal-component>
 </div>

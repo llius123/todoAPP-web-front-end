@@ -10,6 +10,7 @@ import { AppRoutingModule } from "../app-routing.module";
 import { TodoProyectoComponent } from "./proyecto/todo-proyecto.component";
 import { ProyectoModule } from "../components/proyecto/proyecto.module";
 import { BreadcrumComponent } from './breadcrum/breadcrum.component';
+import { ModalModule } from '../components/modal/modal.module';
 
 @NgModule({
 	declarations: [TodoComponent, ListarTodoComponent, TodoProyectoComponent, BreadcrumComponent],
@@ -18,7 +19,8 @@ import { BreadcrumComponent } from './breadcrum/breadcrum.component';
 		BrowserModule,
 		ReactiveFormsModule,
 		TodoListModule,
-		ProyectoModule
+		ProyectoModule,
+		ModalModule
 	],
 	providers: [TodoService, SvgService],
 	bootstrap: []

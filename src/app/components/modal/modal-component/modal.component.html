@@ -1,0 +1,26 @@
+<!-- The Modal -->
+<div id="myModal" class="modal" [style.display]="estadoModal">
+
+	<!-- Modal content -->
+	<div class="modal-content">
+		<div class="boton-cerrar">
+			<div (click)="cambiarEstadoModal(true)" class="close">&times;</div>
+		</div>
+		<div class="modal-container">
+			<div class="columna-modal">
+				<h3>Crear un nuevo Tag y asignarlo al Todo actual</h3>
+				<input type="text" #inputNuevoTag>
+				<button class="cancelar" (click)="crearTagNuevo(inputNuevoTag.value)">+ Tag</button>
+			</div>
+			<div class="columna-modal">
+				<h3>Asignar un Tag de la lista al Todo actual</h3>
+				<select #tag>
+					<option *ngFor="let tag of tagList">{{tag.titulo}}</option>
+				</select>
+				<button class="cancelar" (click)="eliminarTagDelDesplegable(tag.selectedIndex)">X</button>
+				<button class="cancelar" (click)="enlazarTagConTodo(tag.selectedIndex)">+</button>
+			</div>
+		</div>
+	</div>
+	
+</div>
