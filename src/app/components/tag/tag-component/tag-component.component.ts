@@ -30,10 +30,10 @@ export class TagComponent implements OnInit {
 
 	public queTagsHayQueMostrar(){
 		this.esconderTodosLosTags();
-		if(this.tags.length > 3){
+		if(this.tags && this.tags.length > 3){
 			this.numeroDeTags = true;
 		}
-		if(this.tags.length < 4){
+		if(this.tags && this.tags.length < 4){
 			let acortarTexto = false;
 			for (const tag in this.tags) {
 				if(tag && this._tags[tag].titulo.length > 5){
