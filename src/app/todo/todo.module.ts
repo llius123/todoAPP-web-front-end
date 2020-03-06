@@ -11,6 +11,7 @@ import { TodoProyectoComponent } from "./proyecto/todo-proyecto.component";
 import { ProyectoModule } from "../components/proyecto/proyecto.module";
 import { BreadcrumComponent } from './breadcrum/breadcrum.component';
 import { ModalModule } from '../components/modal/modal.module';
+import { DropdownItemModule } from '../components/dropdown/dropdown.module';
 
 @NgModule({
 	declarations: [TodoComponent, ListarTodoComponent, TodoProyectoComponent, BreadcrumComponent],
@@ -20,7 +21,8 @@ import { ModalModule } from '../components/modal/modal.module';
 		ReactiveFormsModule,
 		TodoListModule,
 		ProyectoModule,
-		ModalModule
+		ModalModule,
+		DropdownItemModule
 	],
 	providers: [TodoService, SvgService],
 	bootstrap: []

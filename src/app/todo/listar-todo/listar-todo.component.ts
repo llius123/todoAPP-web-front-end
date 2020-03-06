@@ -145,6 +145,7 @@ export class ListarTodoComponent implements OnInit {
 		} else {
 			this._todoService.crearTodo(todo, this._idProyecto).subscribe(
 				resp => {
+					resp = resp[0];
 					this.todoList.push(resp);
 					this.formdata.patchValue({
 						id: resp.id,

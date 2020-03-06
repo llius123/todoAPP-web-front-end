@@ -40,4 +40,11 @@ export class ModalComponent implements OnInit {
 	}
 	ngOnDestroy(): void {
 	}
+
+	public eliminarTagDelDesplegable($event: any){
+
+	}
+	public enlazarTagConTodo($event: any){
+
+	}
 }
