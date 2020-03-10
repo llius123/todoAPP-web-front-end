@@ -1,12 +1,12 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
-import { ModalComponent } from './modal-component/modal.component';
+import { ModalTagComponent } from './modal-tag-component/modal-tag.component';
 
 @NgModule({
-	declarations: [ModalComponent],
+	declarations: [ModalTagComponent],
 	imports: [CommonModule, BrowserModule],
 	providers: [],
-	exports: [ModalComponent]
+	exports: [ModalTagComponent]
 })
-export class ModalModule {}
+export class ModalTagModule {}

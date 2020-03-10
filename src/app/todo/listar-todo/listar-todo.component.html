@@ -1,4 +1,3 @@
-<dropdown></dropdown>
 <div class="container">
 	<div class="todo">
 		<todo-list
@@ -57,5 +56,5 @@
 			</form>
 		</ng-container>
 	</div>
-	<modal-component (eventosModal)="escucharEventosModal($event)" #tagModal></modal-component>
+	<modal-tag-component (enlazarTagconTodo)="enlazarTagconTodo($event)" #tagModal></modal-tag-component>
 </div>

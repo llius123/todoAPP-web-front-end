@@ -10,8 +10,7 @@ import { AppRoutingModule } from "../app-routing.module";
 import { TodoProyectoComponent } from "./proyecto/todo-proyecto.component";
 import { ProyectoModule } from "../components/proyecto/proyecto.module";
 import { BreadcrumComponent } from './breadcrum/breadcrum.component';
-import { ModalModule } from '../components/modal/modal.module';
-import { DropdownItemModule } from '../components/dropdown/dropdown.module';
+import { ModalTagModule } from '../components/modal/modal-tag.module';
 
 @NgModule({
 	declarations: [TodoComponent, ListarTodoComponent, TodoProyectoComponent, BreadcrumComponent],
@@ -21,8 +20,7 @@ import { DropdownItemModule } from '../components/dropdown/dropdown.module';
 		ReactiveFormsModule,
 		TodoListModule,
 		ProyectoModule,
-		ModalModule,
-		DropdownItemModule
+		ModalTagModule
 	],
 	providers: [TodoService, SvgService],
 	bootstrap: []

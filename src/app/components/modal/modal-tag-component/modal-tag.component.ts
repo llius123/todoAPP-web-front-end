@@ -1,23 +1,16 @@
 import { Component, OnInit, ViewChild, Input, ElementRef, EventEmitter, Output } from "@angular/core";
 import { TagInterface } from '../../tag/tag-component/tag-component.component';
 
-export interface EventoModalInterface {
-	accion: EventoModalEnum,
-	titulo?: string
-}
-
-export enum EventoModalEnum{
-	NUEVO_TAG
-}
-
 @Component({
-	selector: "modal-component",
-	templateUrl: "./modal.component.html",
-	styleUrls: ["./modal.component.scss"]
+	selector: "modal-tag-component",
+	templateUrl: "./modal-tag.component.html",
+	styleUrls: ["./modal-tag.component.scss"]
 })
-export class ModalComponent implements OnInit {
+export class ModalTagComponent implements OnInit {
 
-	@Output() eventosModal: EventEmitter<EventoModalInterface> = new EventEmitter<EventoModalInterface>(); 
+	@Output() nuevoTag: EventEmitter<string> = new EventEmitter<string>();
+	@Output() eliminarTag: EventEmitter<number> = new EventEmitter<number>();
+	@Output() enlazarTagconTodo: EventEmitter<number> = new EventEmitter<number>();
 
 	public estadoModal = 'none'
 
@@ -36,15 +29,15 @@ export class ModalComponent implements OnInit {
 	}
 
 	public crearTagNuevo(titulo: string){
-		this.eventosModal.emit({accion: EventoModalEnum.NUEVO_TAG, titulo: titulo});
+		this.nuevoTag.emit(titulo);
 	}
 	ngOnDestroy(): void {
 	}
 
 	public eliminarTagDelDesplegable($event: any){
-
+		
 	}
 	public enlazarTagConTodo($event: any){
-
+		this.enlazarTagconTodo.emit($event)
 	}
 }

@@ -5,7 +5,6 @@ import { UtilsService } from "src/app/global/utils.service";
 import { ActivatedRoute } from "@angular/router";
 import { FormControl, FormGroup } from "@angular/forms";
 import { TagInterface } from 'src/app/components/tag/tag-component/tag-component.component';
-import { EventoModalInterface, EventoModalEnum } from 'src/app/components/modal/modal-component/modal.component';
 @Component({
 	selector: "listar-todo",
 	templateUrl: "./listar-todo.component.html",
@@ -191,7 +190,6 @@ export class ListarTodoComponent implements OnInit {
 	public crearYEnlazarTagConTodo(tituloTag: string){
 		this._todoService.crearYEnlazarTagConTodo(this._idProyecto, this.formdata.get("id").value, { id: null, titulo: tituloTag, proyecto_id: this._idProyecto} ).subscribe(
 			resp => {
-				console.log(resp)
 				this.getAllTag(this._idProyecto)
 			},
 			error => {
@@ -240,13 +238,15 @@ export class ListarTodoComponent implements OnInit {
 	}
 
 	//Escucho los eventos del componente modal
-	public escucharEventosModal($event: EventoModalInterface){
-		switch ($event.accion) {
-			case EventoModalEnum.NUEVO_TAG:
-				this.crearYEnlazarTagConTodo($event.titulo);
-				this.obtenerTodosLosTagAsociadosAlTodoSeleccionado()
-				break;
-		}
+	public enlazarTagconTodo($event: TagInterface){
+		this._todoService.enlazarTagConTodo($event.proyecto_id,this.formdata.get("id").value,$event.id).subscribe(
+			resp => {
+				this.tagDelTodo.push(resp[0])
+			},
+			error => {
+				console.log(error)
+			}
+		)
 	}
 
 	//Obtengo todos los tags asociados al todo seleccionado

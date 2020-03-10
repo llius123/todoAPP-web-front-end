@@ -14,11 +14,19 @@
 			</div>
 			<div class="columna-modal">
 				<h3>Asignar un Tag de la lista al Todo actual</h3>
-				<select #tag>
-					<option *ngFor="let tag of tagList">{{tag.titulo}}</option>
-				</select>
-				<button class="cancelar" (click)="eliminarTagDelDesplegable(tag.selectedIndex)">X</button>
-				<button class="cancelar" (click)="enlazarTagConTodo(tag.selectedIndex)">+</button>
+				<section>
+					<div class="lista-tag" *ngFor="let tag of tagList">
+						<span (click)="enlazarTagConTodo(tag)">
+							{{tag.titulo}}
+						</span>
+						<button class="anyadir" (click)="enlazarTagConTodo(tag)">
+							<i class="icono-plus"></i>
+						</button>						
+						<button class="garbage" (click)="eliminarTagDelDesplegable(tag)">
+							<i class="icono-papelera"></i>
+						</button>
+					</div>
+				</section>
 			</div>
 		</div>
 	</div>

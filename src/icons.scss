@@ -249,3 +249,27 @@
 .icono-cerrar::after {
     transform: rotate(-45deg)
 }
+
+//Plus
+.icono-plus,
+.icono-plus::after {
+    display: block;
+    box-sizing: border-box;
+    background: currentColor;
+    border-radius: 10px
+}
+.icono-plus {
+    margin-top: -2px;
+    position: relative;
+    transform: scale(var(--ggs,1));
+    width: 16px;
+    height: 2px
+}
+.icono-plus::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 16px;
+    top: -7px;
+    left: 7px
+}
