@@ -260,4 +260,29 @@ export class ListarTodoComponent implements OnInit {
 			}
 		)
 	}
+
+	//Eliminar tag
+	public eliminarTag(tag: TagInterface){
+		this._todoService.eliminarTag(tag.id).subscribe(
+			resp => {
+
+			},
+			error => {
+				console.log(error)
+			}
+		)
+	}
+
+	//Creo un nuevo tag
+	public crearNuevoTag(tag: string){
+		const nuevoTag: TagInterface = {titulo: tag,id: null, proyecto_id: this._idProyecto }
+		this._todoService.crearTag(this._idProyecto, nuevoTag).subscribe(
+			resp => {
+				this.tagList.push(resp[0])
+			},
+			error => {
+				console.log(error)
+			}
+		)
+	}
 }

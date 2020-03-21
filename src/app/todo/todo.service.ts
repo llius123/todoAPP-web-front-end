@@ -104,4 +104,8 @@ export class TodoService {
 	public getAllTagsByTodo(idProyecto: number, idTodo: number): Observable<TagInterface[]> {
 		return this.httpClient.get<TagInterface[]>(environment.apiPath + `tag/getAllTagByTodo/${idProyecto}/${idTodo}`);
 	}
+
+	public crearTag(idProyecto: number, tag: TagInterface): Observable<TagInterface> {
+		return this.httpClient.post<TagInterface>(environment.apiPath + `tag/createTag/${idProyecto}`, tag);
+	}
 }

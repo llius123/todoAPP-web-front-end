@@ -56,5 +56,5 @@
 			</form>
 		</ng-container>
 	</div>
-	<modal-tag-component (enlazarTagconTodo)="enlazarTagconTodo($event)" #tagModal></modal-tag-component>
+	<modal-tag-component (enlazarTagconTodo)="enlazarTagconTodo($event)" (eliminarTag)="eliminarTag($event)" (nuevoTag)="crearNuevoTag($event)" #tagModal></modal-tag-component>
 </div>

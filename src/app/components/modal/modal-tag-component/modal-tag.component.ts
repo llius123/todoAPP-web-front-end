@@ -35,8 +35,9 @@ export class ModalTagComponent implements OnInit {
 	}
 
 	public eliminarTagDelDesplegable($event: any){
-		
+		this.eliminarTag.emit($event);
 	}
+
 	public enlazarTagConTodo($event: any){
 		this.enlazarTagconTodo.emit($event)
 	}
